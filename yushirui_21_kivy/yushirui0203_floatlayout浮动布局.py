@@ -3,17 +3,12 @@
 # Date: 2020-06-22
 # Message：yushirui0201_Size屏幕尺寸
 
-# ======================================== 标准库 ========================================
 # 文件系统
 import os
 
 # 系统
 import sys
 
-# 时间
-from time import strftime
-
-# ======================================== 追加路径 ========================================
 # 追加路径
 from common.util.yushirui_path_append import yushirui_path_append
 
@@ -36,7 +31,6 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
-
 # 读取配置文件
 Config.read(config_path)
 
@@ -45,7 +39,6 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
-
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -58,11 +51,10 @@ from kivy.resources import resource_add_path
 # 添加资源目录
 resource_add_path(os.path.abspath(resource_dir_path))
 
-# ======================================== kivy应用 ========================================
+# ======================================== kivy应用与组件 ========================================
 # app应用
 from kivy.app import App
 
-# ======================================== kivy组件 ========================================
 # 组件
 from kivy.uix.widget import Widget
 
@@ -72,24 +64,8 @@ from kivy.uix.label import Label
 # 按钮
 from kivy.uix.button import Button
 
-# 文本框
-from kivy.uix.textinput import TextInput
-
-# 异步图片
-from kivy.uix.image import AsyncImage
-
-# 开关
-from kivy.uix.togglebutton import ToggleButton
-
-# 开关改变状态
-from kivy.uix.behaviors import ToggleButtonBehavior
-
-# ======================================== kivy布局 ========================================
 # 线布局
 from kivy.uix.boxlayout import BoxLayout
-
-# 相对布局
-from kivy.uix.relativelayout import RelativeLayout
 
 # 浮动布局
 from kivy.uix.floatlayout import FloatLayout
@@ -97,34 +73,14 @@ from kivy.uix.floatlayout import FloatLayout
 # 列表布局
 from kivy.properties import ListProperty
 
-# 锚点布局
-from kivy.uix.anchorlayout import AnchorLayout
-
 # 网格布局
 from kivy.uix.gridlayout import GridLayout
 
-# 页面布局
-from kivy.uix.pagelayout import PageLayout
+# 文本框
+from kivy.uix.textinput import TextInput
 
-# 缩放布局
-from kivy.uix.scatterlayout import ScatterLayout
-
-# 堆栈布局
-from kivy.uix.stacklayout import StackLayout
-
-# ======================================== kivy其他 ========================================
-# 定时器
-from kivy.clock import Clock
-
-# 图案库，矩形、颜色、线
-from kivy.graphics import Rectangle, Color, Line
-
-# 图片指示组
-from kivy.graphics.instructions import InstructionGroup
-
-# 十六进制颜色
-from kivy.utils import get_color_from_hex
-
+# 图案库，矩形、颜色
+from kivy.graphics import Rectangle, Color
 
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
@@ -137,26 +93,31 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-
-
-class ButtonFloatLayout(FloatLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-    def press_button(self):
-        """按下按钮触发事件的回调函数"""
-        print('press_button is running')
-
-    def release_button(self):
-        """"按下按钮并释放时触发事件的回调函数"""
-        print('release_button is running')
-
-class ButtonApp(App):
+class Yushirui0203App(App):
     def build(self):
-        return ButtonFloatLayout()
+
+        def update_rect(layout, *args):
+            """设置背景尺寸，可忽略"""
+            layout.rect.pos = layout.pos
+            layout.rect.size = layout.size
+
+        float_layout = FloatLayout()
+
+        # 设置背景颜色（可忽略）
+        with float_layout.canvas:
+            Color(1, 1, 1, 1)
+            float_layout.rect = Rectangle(pos=float_layout.pos, size=float_layout.size)
+            float_layout.bind(pos=update_rect, size=update_rect)
+
+        # 在布局内的300，200处添加一个为布局0.3，0.2大小的按钮
+        button = Button(text='Hello FloatLayout', size_hint=(.3, .2), pos=(300, 200))
+
+        # 将按钮添加到布局内
+        float_layout.add_widget(button)
+
+        # 返回布局
+        return float_layout
 
 
-if __name__ == '__main__':
-    from kivy.core.window import Window
-    Window.clearcolor = [1,1,1,1]
-    ButtonApp().run()
+if __name__ == "__main__":
+    Yushirui0203App().run()

@@ -97,7 +97,7 @@ class YushiruiWidget(FloatLayout):
         super().__init__(**kwargs)
 
 # app类
-class Yushirui0201_uiApp(App):
+class Yushirui0201App(App):
     # 重构
     def build(self):
         # 返回自定义组件
@@ -105,4 +105,4 @@ class Yushirui0201_uiApp(App):
 
 if __name__ == '__main__':
     # 运行
-    Yushirui0201_uiApp().run()
+    Yushirui0201App().run()
