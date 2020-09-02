@@ -170,7 +170,7 @@ class VideoPlayerTest(BoxLayout):
         self.add_widget(player)
 
 
-class VideoPlayerApp(App):
+class Yushirui0509App(App):
     def build(self):
         return VideoPlayerTest()
 
@@ -178,4 +178,4 @@ class VideoPlayerApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    VideoPlayerApp().run()
+    Yushirui0509App().run()

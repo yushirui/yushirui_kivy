@@ -151,7 +151,7 @@ class ButtonFloatLayout(FloatLayout):
         """"按下按钮并释放时触发事件的回调函数"""
         print('release_button is running')
 
-class ButtonApp(App):
+class Yushirui0403App(App):
     def build(self):
         return ButtonFloatLayout()
 
@@ -159,4 +159,4 @@ class ButtonApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [1,1,1,1]
-    ButtonApp().run()
+    Yushirui0403App().run()

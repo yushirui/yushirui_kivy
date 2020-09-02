@@ -139,15 +139,14 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class TextInputWidget(Widget):
+class YushiruiWidget(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class TextInputApp(App):
+class Yushirui0410App(App):
     def build(self):
-        return TextInputWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    TextInputApp().run()
+    Yushirui0410App().run()

@@ -116,7 +116,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class StackLayoutWidget(StackLayout):
+class YushiruiWidget(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -137,10 +137,9 @@ class StackLayoutWidget(StackLayout):
         self.rect.size = self.size
 
 
-class StackApp(App):
+class Yushirui0222App(App):
     def build(self):
-        return StackLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    StackApp().run()
+    Yushirui0222App().run()

@@ -98,10 +98,9 @@ class YushiruiWidget(BoxLayout):
         super().__init__(**kwargs)
 
 
-class BoxApp(App):
+class Yushirui0207App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    BoxApp().run()
+    Yushirui0207App().run()

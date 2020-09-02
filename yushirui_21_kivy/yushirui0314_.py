@@ -127,15 +127,14 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class TranslateBoxLayoutWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class TranslateApp(App):
+class Yushirui0314App(App):
     def build(self):
-        return TranslateBoxLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    TranslateApp().run()
+    Yushirui0314App().run()

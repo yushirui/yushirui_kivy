@@ -159,7 +159,7 @@ class SpinnerBox(BoxLayout):
         super().__init__(**kwargs)
 
 
-class SpinnerApp(App):
+class Yushirui0506App(App):
     def build(self):
         return SpinnerBox()
 
@@ -167,4 +167,4 @@ class SpinnerApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    SpinnerApp().run()
+    Yushirui0506App().run()

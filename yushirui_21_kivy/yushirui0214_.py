@@ -101,10 +101,9 @@ class YushiruiWidget(GridLayout):
         super().__init__(**kwargs)
 
 
-class GridApp(App):
+class Yushirui0214App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    GridApp().run()
+    Yushirui0214App().run()

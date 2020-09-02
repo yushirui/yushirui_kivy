@@ -144,10 +144,10 @@ class ImageBoxLayout(BoxLayout):
         super().__init__(**kwargs)
 
 
-class ImageApp(App):
+class Yushirui0408App(App):
     def build(self):
         return ImageBoxLayout()
 
 
 if __name__ == '__main__':
-    ImageApp().run()
+    Yushirui0408App().run()

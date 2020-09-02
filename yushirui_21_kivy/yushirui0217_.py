@@ -99,17 +99,15 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class PageLayoutWidget(PageLayout):
+class YushiruiWidget(PageLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class PageApp(App):
+class Yushirui0217App(App):
     def build(self):
-        return PageLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    PageApp().run()
-
+    Yushirui0217App().run()
 

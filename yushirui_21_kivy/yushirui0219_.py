@@ -102,15 +102,14 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class RelativeLayoutWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class RelativeApp(App):
+class Yushirui0219App(App):
     def build(self):
-        return RelativeLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    RelativeApp().run()
+    Yushirui0219App().run()

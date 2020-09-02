@@ -110,15 +110,14 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class ScatterLayoutWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class ScatterApp(App):
+class Yushirui0221App(App):
     def build(self):
-        return ScatterLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    ScatterApp().run()
+    Yushirui0221App().run()

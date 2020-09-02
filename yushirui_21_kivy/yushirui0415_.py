@@ -139,7 +139,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class ProgressBarWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.i = 0
@@ -156,12 +156,11 @@ class ProgressBarWidget(BoxLayout):
             self.update_bar_trigger()
 
 
-class ProgressBarApp(App):
+class Yushirui0415App(App):
     def build(self):
-        return ProgressBarWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    ProgressBarApp().run()
+    Yushirui0415App().run()

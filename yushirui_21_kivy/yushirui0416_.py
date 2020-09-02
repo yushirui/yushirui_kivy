@@ -139,7 +139,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class ToggleButtonWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -147,12 +147,11 @@ class ToggleButtonWidget(BoxLayout):
         self.add_widget(tb)
 
 
-class ToggleButtonApp(App):
+class Yushirui0416App(App):
     def build(self):
-        return ToggleButtonWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    ToggleButtonApp().run()
+    Yushirui0416App().run()

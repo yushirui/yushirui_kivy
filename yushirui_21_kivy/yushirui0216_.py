@@ -104,10 +104,9 @@ class YushiruiWidget(PageLayout):
         super().__init__(**kwargs)
 
 
-class PageApp(App):
+class Yushirui0216App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    PageApp().run()
+    Yushirui0216App().run()

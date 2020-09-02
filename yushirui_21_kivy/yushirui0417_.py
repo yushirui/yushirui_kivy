@@ -139,7 +139,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class SwitchWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -147,12 +147,11 @@ class SwitchWidget(BoxLayout):
         print('Callback is running')
 
 
-class SwitchApp(App):
+class Yushirui0417App(App):
     def build(self):
-        return SwitchWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    SwitchApp().run()
+    Yushirui0417App().run()

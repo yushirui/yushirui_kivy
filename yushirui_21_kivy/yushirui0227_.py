@@ -151,7 +151,7 @@ class ClockBoxLayout(BoxLayout):
         self.timing_flag = not self.timing_flag
 
 
-class ClockApp(App):
+class Yushirui0227App(App):
     def build(self):
         return ClockBoxLayout()
 
@@ -160,4 +160,4 @@ if __name__ == '__main__':
     # 设置页面背景
     from kivy.core.window import Window
     Window.clearcolor = [.8, .8, .8, 1]
-    ClockApp().run()
+    Yushirui0227App().run()

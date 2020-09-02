@@ -124,7 +124,7 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class RelativeWidget(RelativeLayout):
+class YushiruiWidget(RelativeLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -142,10 +142,9 @@ class RelativeWidget(RelativeLayout):
         self.rect.size = self.size
 
 
-class QuadApp(App):
+class Yushirui0307App(App):
     def build(self):
-        return RelativeWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    QuadApp().run()
+    Yushirui0307App().run()

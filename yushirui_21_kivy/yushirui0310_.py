@@ -127,15 +127,14 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class RelativeWidget(RelativeLayout):
+class YushiruiWidget(RelativeLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class CanvasApp(App):
+class Yushirui0310App(App):
     def build(self):
-        return RelativeWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    CanvasApp().run()
+    Yushirui0310App().run()

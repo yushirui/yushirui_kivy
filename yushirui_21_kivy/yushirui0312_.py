@@ -127,15 +127,14 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class RotateGridLayoutWidget(GridLayout):
+class YushiruiWidget(GridLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class RotateApp(App):
+class Yushirui0312App(App):
     def build(self):
-        return RotateGridLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    RotateApp().run()
+    Yushirui0312App().run()

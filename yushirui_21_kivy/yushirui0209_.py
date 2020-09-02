@@ -128,10 +128,9 @@ class YushiruiWidget(AnchorLayout):
         self.rect.size = self.size
 
 
-class AnchorApp(App):
+class Yushirui0209App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    AnchorApp().run()
+    Yushirui0209App().run()

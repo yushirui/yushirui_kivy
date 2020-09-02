@@ -120,10 +120,9 @@ class YushiruiWidget(GridLayout):
         self.rect.size = self.size
 
 
-class GridApp(App):
+class Yushirui0211App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    GridApp().run()
+    Yushirui0211App().run()

@@ -139,7 +139,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class ButtonFloatLayout(FloatLayout):
+class YushiruiWidget(FloatLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -147,12 +147,12 @@ class ButtonFloatLayout(FloatLayout):
         self.add_widget(bt)
 
 
-class ButtonApp(App):
+class Yushirui0401App(App):
     def build(self):
-        return ButtonFloatLayout()
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [1,1,1,1]
-    ButtonApp().run()
+    Yushirui0401App().run()

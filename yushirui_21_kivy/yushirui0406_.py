@@ -156,7 +156,7 @@ class LabelBoxLayout(BoxLayout):
         print('print_it is running')
 
 
-class LabelApp(App):
+class Yushirui0406App(App):
     def build(self):
         return LabelBoxLayout()
 
@@ -164,4 +164,4 @@ class LabelApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [1,1,1,1]
-    LabelApp().run()
+    Yushirui0406App().run()

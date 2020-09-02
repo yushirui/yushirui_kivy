@@ -128,7 +128,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class DrawCanvasWidget(Widget):
+class YushiruiWidget(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # 设置默认颜色
@@ -148,11 +148,11 @@ class DrawCanvasWidget(Widget):
             touch.ud['current_line'].points += (touch.x, touch.y)
 
 
-class PaintApp(App):
+class Yushirui0316App(App):
     def build(self):
         self.draw_canvas_widget = DrawCanvasWidget()
         return self.draw_canvas_widget
 
 
 if __name__ == '__main__':
-    PaintApp().run()
+    Yushirui0316App().run()

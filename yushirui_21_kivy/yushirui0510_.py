@@ -177,7 +177,7 @@ class VKeyboardTest(BoxLayout):
         print('You have pressed the key is:',args[2])
 
 
-class VKeyboardApp(App):
+class Yushirui0510App(App):
     def build(self):
         return VKeyboardTest()
 
@@ -185,4 +185,4 @@ class VKeyboardApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    VKeyboardApp().run()
+    Yushirui0510App().run()

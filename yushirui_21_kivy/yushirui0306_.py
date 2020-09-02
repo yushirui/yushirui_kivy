@@ -146,6 +146,5 @@ class Yushirui0306App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == '__main__':
     Yushirui0306App().run()

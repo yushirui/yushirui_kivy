@@ -113,10 +113,9 @@ class YushiruiWidget(PageLayout):
         self.add_widget(bt1)
 
 
-class PageApp(App):
+class Yushirui0215App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == "__main__":
-    PageApp().run()
+    Yushirui0215App().run()

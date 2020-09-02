@@ -138,17 +138,16 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class CheckBoxWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
 
-class CheckBoxApp(App):
+class Yushirui0411App(App):
     def build(self):
-        return CheckBoxWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    CheckBoxApp().run()
+    Yushirui0411App().run()

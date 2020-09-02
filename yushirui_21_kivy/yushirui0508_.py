@@ -168,7 +168,6 @@ class Yushirui0508App(App):
     def build(self):
         return YushiruiWidget()
 
-
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]

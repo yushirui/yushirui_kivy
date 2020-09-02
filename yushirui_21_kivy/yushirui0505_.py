@@ -180,7 +180,7 @@ class FileChooserBox(BoxLayout):
         self._popup.dismiss()
 
 
-class FileChooserApp(App):
+class Yushirui0505App(App):
     def build(self):
         return FileChooserBox()
 
@@ -188,4 +188,4 @@ class FileChooserApp(App):
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8, .8, .8, 1]
-    FileChooserApp().run()
+    Yushirui0505App().run()

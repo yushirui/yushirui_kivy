@@ -113,11 +113,11 @@ class MyButton(Button):
         self.size_hint = [0.2, 0.2]
 
 
-class RelativeLayoutWidget(RelativeLayout):
+class YushiruiWidget(RelativeLayout):
     pass
 
 
-class BoxLayoutWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -152,10 +152,9 @@ class BoxLayoutWidget(BoxLayout):
         self.rect.size = self.size
 
 
-class RelativeApp(App):
+class Yushirui0218App(App):
     def build(self):
-        return BoxLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    RelativeApp().run()
+    Yushirui0218App().run()

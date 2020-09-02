@@ -146,7 +146,7 @@ class FrameToggleButton(ToggleButton):
             ToggleButtonBehavior.do_press(self)
 
 
-class DrawCanvasWidget(Widget):
+class YushiruiWidget(Widget):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         # 设置默认颜色
@@ -184,11 +184,11 @@ class DrawCanvasWidget(Widget):
         self.change_color(self.last_color)
 
 
-class PaintApp(App):
+class Yushirui0320App(App):
     def build(self):
         self.canvas_widget = DrawCanvasWidget()
         return self.canvas_widget
 
 
 if __name__ == '__main__':
-    PaintApp().run()
+    Yushirui0320App().run()

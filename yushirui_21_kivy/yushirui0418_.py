@@ -143,7 +143,7 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class VideoWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -158,12 +158,11 @@ class VideoWidget(BoxLayout):
         self.add_widget(video)
 
 
-class VideoApp(App):
+class Yushirui0418App(App):
     def build(self):
-        return VideoWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
     from kivy.core.window import Window
     Window.clearcolor = [.8,.8,.8,1]
-    VideoApp().run()
+    Yushirui0418App().run()

@@ -116,11 +116,11 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class ScatterLayoutWidget(ScatterLayout):
+class YushiruiWidget(ScatterLayout):
     pass
 
 
-class BoxLayoutWidget(BoxLayout):
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -145,10 +145,9 @@ class BoxLayoutWidget(BoxLayout):
         self.rect.size = self.size
 
 
-class ScatterApp(App):
+class Yushirui0220App(App):
     def build(self):
-        return BoxLayoutWidget()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    ScatterApp().run()
+    Yushirui0220App().run()
