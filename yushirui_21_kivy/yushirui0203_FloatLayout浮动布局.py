@@ -51,11 +51,10 @@ from kivy.resources import resource_add_path
 # 添加资源目录
 resource_add_path(os.path.abspath(resource_dir_path))
 
-# ======================================== kivy应用 ========================================
+# ======================================== kivy应用与组件 ========================================
 # app应用
 from kivy.app import App
 
-# ======================================== kivy组件 ========================================
 # 组件
 from kivy.uix.widget import Widget
 
@@ -65,18 +64,8 @@ from kivy.uix.label import Label
 # 按钮
 from kivy.uix.button import Button
 
-# 文本框
-from kivy.uix.textinput import TextInput
-
-# 异步图片
-from kivy.uix.image import AsyncImage
-
-# ======================================== kivy布局 ========================================
 # 线布局
 from kivy.uix.boxlayout import BoxLayout
-
-# 相对布局
-from kivy.uix.relativelayout import RelativeLayout
 
 # 浮动布局
 from kivy.uix.floatlayout import FloatLayout
@@ -84,20 +73,11 @@ from kivy.uix.floatlayout import FloatLayout
 # 列表布局
 from kivy.properties import ListProperty
 
-# 锚点布局
-from kivy.uix.anchorlayout import AnchorLayout
-
 # 网格布局
 from kivy.uix.gridlayout import GridLayout
 
-# 页面布局
-from kivy.uix.pagelayout import PageLayout
-
-# 缩放布局
-from kivy.uix.scatterlayout import ScatterLayout
-
-# 堆栈布局
-from kivy.uix.stacklayout import StackLayout
+# 文本框
+from kivy.uix.textinput import TextInput
 
 # 图案库，矩形、颜色
 from kivy.graphics import Rectangle, Color
@@ -113,33 +93,37 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-
-
-
-class YushiruiWidget(StackLayout):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-
-        # 设置背景颜色（可忽略）
-        with self.canvas:
-            Color(1, 1, 1, 1)
-            self.rect = Rectangle(pos=self.pos, size=self.size)
-            self.bind(pos=self.update_rect, size=self.update_rect)
-
-        # 遍历添加按钮
-        for i in range(25):
-            btn = Button(text=str(i), width=40 + i * 5, size_hint=(None, 0.15))
-            self.add_widget(btn)
-
-    def update_rect(self, *args):
-        """设置背尺寸，可忽略"""
-        self.rect.pos = self.pos
-        self.rect.size = self.size
-
-
-class Yushirui0222App(App):
+class Yushirui0203App(App):
     def build(self):
-        return YushiruiWidget()
 
-if __name__ == '__main__':
-    Yushirui0222App().run()
+        # 设置背景尺寸（布局）
+        def update_rect(layout, *args):
+            # 布局矩形位置 = 布局位置
+            layout.rect.pos = layout.pos
+            # 布局矩形大小 = 布局大小
+            layout.rect.size = layout.size
+
+        # 浮动布局
+        float_layout = FloatLayout()
+
+        # 浮动布局画布锁
+        with float_layout.canvas:
+            # 背景颜色
+            Color(1, 1, 1, 1)
+            # 浮动布局矩形 = 矩形（位置=浮动布局位置，大小=浮动布局大小）
+            float_layout.rect = Rectangle(pos=float_layout.pos, size=float_layout.size)
+            # 浮动布局绑定（位置=布局矩形位置，大小=设置背景尺寸）
+            float_layout.bind(pos=update_rect, size=update_rect)
+
+        # 在布局内的300，200处添加一个为布局0.3，0.2大小的按钮
+        button = Button(text='Hello FloatLayout', size_hint=(.3, .2), pos=(300, 200))
+
+        # 将按钮添加到布局内
+        float_layout.add_widget(button)
+
+        # 返回布局
+        return float_layout
+
+
+if __name__ == "__main__":
+    Yushirui0203App().run()

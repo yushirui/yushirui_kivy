@@ -1,6 +1,11 @@
 <YushiruiWidget>:
+    # 布局组件间距
     padding: 20
+
+    # 组件间距
     spacing: 20
+
+    # 列数3
     cols: 3
 
     canvas:
@@ -12,6 +17,11 @@
 
     Button:
         text: 'First'
+        # 以下两条属性，必须联合起来用
+        # 按钮相对大小为空
+        size_hint_x:None
+        # 宽度
+        width:'100px'
 
     Button:
         text: 'Second'

@@ -102,14 +102,16 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-
+# 相对大小，相对父布局大小，不是窗口大小
 
 class MyButton(Button):
     """自定义一个按钮，提出公共属性"""
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        # 按钮字体大小
         self.font_size = 20
+        # 按钮相对大小 = 窗口0.2 0.2
         self.size_hint = [0.2, 0.2]
 
 
@@ -127,15 +129,17 @@ class YushiruiWidget(BoxLayout):
             self.rect = Rectangle(pos=self.pos, size=self.size)
             self.bind(pos=self.update_rect, size=self.update_rect)
 
-        # 创建一个RelativeLayout布局
-        relative_layout = RelativeLayoutWidget()
 
-        # 使用自定义按钮
+
+        # 使用自定义按钮，这里的按钮，根据相对布局的位置，不是最外层线性布局的位置
         bt0 = MyButton(text='Bt0', pos_hint={"right":1, "top":1}, background_color=(0.1, 0.5, 0.6, 1))
         bt1 = MyButton(text='Bt1', pos_hint={"x": 0, "top": 1}, background_color=(1, 0, 0, 1))
         bt_relative = MyButton(text='Relative', pos_hint={"center_x":.5, "center_y":.5}, background_color=(0.4, 0.5, 0.6, 1))
         bt2 = MyButton(text='Bt2', pos_hint={"x":0, "y":0}, background_color=(0, 0, 1, 1))
         bt3 = MyButton(text='Bt3', pos_hint={"right":1, "y":0}, background_color=(0.8, 0.9, 0.2, 1))
+
+        # 相对布局
+        relative_layout = RelativeLayoutWidget()
 
         # 向RelativeLayout布局内遍历添加元素
         for i in [bt0, bt1, bt_relative, bt2, bt3]:

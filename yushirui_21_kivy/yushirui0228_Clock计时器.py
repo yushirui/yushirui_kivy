@@ -3,12 +3,17 @@
 # Date: 2020-06-22
 # Message：yushirui0201_Size屏幕尺寸
 
+# ======================================== 标准库 ========================================
 # 文件系统
 import os
 
 # 系统
 import sys
 
+# 时间
+from time import strftime
+
+# ======================================== 追加路径 ========================================
 # 追加路径
 from common.util.yushirui_path_append import yushirui_path_append
 
@@ -31,6 +36,7 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
+
 # 读取配置文件
 Config.read(config_path)
 
@@ -39,6 +45,7 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
+
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -96,8 +103,15 @@ from kivy.uix.pagelayout import PageLayout
 # 缩放布局
 from kivy.uix.scatterlayout import ScatterLayout
 
+# 堆栈布局
+from kivy.uix.stacklayout import StackLayout
+
 # 图案库，矩形、颜色
 from kivy.graphics import Rectangle, Color
+
+# ======================================== kivy其他 ========================================
+# 定时器
+from kivy.clock import Clock
 
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
@@ -110,44 +124,56 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-
-
-
-
-
-
-class YushiruiWidget(ScatterLayout):
-    pass
-
-
-class YushiruiWidget(BoxLayout):
+class ClockBoxLayout(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
+        # 时间标记，计时中
+        self.timing_flag = False
+        # 初始化时间
+        self.timing_seconds = 0
+        # 开始计时
+        self.on_start()
 
-        # 设置背景颜色（可忽略）
-        with self.canvas:
-            Color(1, 1, 1, 1)
-            self.rect = Rectangle(pos=self.pos, size=self.size)
-            self.bind(pos=self.update_rect, size=self.update_rect)
+    # 开始计时
+    def on_start(self):
+        # 每隔n秒，执行一次函数（要执行的函数-更新时间，0秒）
+        Clock.schedule_interval(self.update_time, 0)
 
-        # 创建一个ScatterLayout布局
-        scatter_layout = ScatterLayoutWidget()
-        # 异步加载图片
-        image = AsyncImage(source='http://sck.rjkflm.com/images/logo1.png')
-        # 将图片添加到ScatterLayout布局中
-        scatter_layout.add_widget(image)
-        # 将ScatterLayout布局嵌套在BoxLayout布局中
-        self.add_widget(scatter_layout)
+    # 更新时间（时间）
+    def update_time(self, nap):
+        # 时间标记，计时中
+        if self.timing_flag:
+            # 时间 += 时间
+            self.timing_seconds += nap
 
-    def update_rect(self, *args):
-        """设置背景尺寸，可忽略"""
-        self.rect.pos = self.pos
-        self.rect.size = self.size
+        # 通过id获取标签的文本
+        self.ids.time_label_id.text = strftime('[b]%H[/b]:%M:%S')
+
+        # 求商（分钟）和余数（秒）
+        m, s = divmod(self.timing_seconds, 60)
+        # 同上设置text值
+        self.ids.stopwatch.text = ('%02d:%02d.[size=40]%02d[/size]' % (int(m), int(s), int(s * 100 % 100)))
+
+    # 启动或停止计时
+    def start_or_stop(self):
+        # 切换状态
+        self.ids.start_stop_button_id.text = 'Start' if self.timing_flag else 'Stop'
+        self.timing_flag = not self.timing_flag
+    # 重置时钟
+    def reset_clock(self):
+        if self.timing_flag:
+            self.ids.start_stop_button_id.text = 'Start'
+            self.timing_flag = False
+        self.timing_seconds = 0
 
 
-class Yushirui0220App(App):
+class Yushirui0228App(App):
     def build(self):
-        return YushiruiWidget()
+        return ClockBoxLayout()
+
 
 if __name__ == '__main__':
-    Yushirui0220App().run()
+    # 设置页面背景
+    from kivy.core.window import Window
+    Window.clearcolor = [.8, .8, .8, 1]
+    Yushirui0228App().run()

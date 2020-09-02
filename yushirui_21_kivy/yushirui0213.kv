@@ -1,10 +1,23 @@
 <YushiruiWidget>:
+    # 布局组件间隙
     padding: 20
+
+    # 组件组件间隙
     spacing: 20
+
+    # 列数
     cols: 3
+
+    # 强制使用默认列宽
     col_force_default: True
+
+    # 默认列宽
     col_default_width: 120
+
+    # 强制使用默认行高
     row_force_default: True
+
+    # 默认行高
     row_default_height: 40
 
     canvas:
@@ -16,7 +29,11 @@
 
     Button:
         text: 'First'
+
+        # 组合使用
+        # 相对大小空
         size_hint_x: None
+        # 宽度
         width: '100px'
 
     Button:

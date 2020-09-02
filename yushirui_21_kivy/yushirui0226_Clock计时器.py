@@ -136,11 +136,11 @@ class ClockBoxLayout(BoxLayout):
         self.on_start()
 
     def on_start(self):
-        # 每过0秒执行一次update_time方法
+        # 每隔0秒，执行一次
         Clock.schedule_interval(self.update_time, 0)
 
     def update_time(self, nap):
-        # 通过id获取到time_label_id控件，并设置text属性值
+        # 通过id获取标签的文本
         self.ids.time_label_id.text = strftime('[b]%H[/b]:%M:%S')
 
 

@@ -3,9 +3,13 @@
     pos: self.parent.pos
     size_hint: .5, .4
     canvas:
+        # 旋转
         Rotate:
+            # xy轴不变，z轴旋转
             axis: (0,0,1)
+            # 逆时针旋转角
             angle: 60
+            # 旋转点，窗口中间
             origin: self.center
         Color:
             rgba: 1,0,0,.5

@@ -3,17 +3,12 @@
 # Date: 2020-06-22
 # Message：yushirui0201_Size屏幕尺寸
 
-# ======================================== 标准库 ========================================
 # 文件系统
 import os
 
 # 系统
 import sys
 
-# 时间
-from time import strftime
-
-# ======================================== 追加路径 ========================================
 # 追加路径
 from common.util.yushirui_path_append import yushirui_path_append
 
@@ -36,7 +31,6 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
-
 # 读取配置文件
 Config.read(config_path)
 
@@ -45,7 +39,6 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
-
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -109,10 +102,6 @@ from kivy.uix.stacklayout import StackLayout
 # 图案库，矩形、颜色
 from kivy.graphics import Rectangle, Color
 
-# ======================================== kivy其他 ========================================
-# 定时器
-from kivy.clock import Clock
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -124,47 +113,33 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class ClockBoxLayout(BoxLayout):
+
+
+# 堆栈布局
+class YushiruiWidget(StackLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.timing_flag = False
-        self.timing_seconds = 0
-        self.on_start()
 
-    def on_start(self):
-        # 每过0秒执行一次update_time方法
-        Clock.schedule_interval(self.update_time, 0)
+        # 设置背景颜色（可忽略）
+        with self.canvas:
+            Color(1, 1, 1, 1)
+            self.rect = Rectangle(pos=self.pos, size=self.size)
+            self.bind(pos=self.update_rect, size=self.update_rect)
 
-    def update_time(self, nap):
-        if self.timing_flag:
-            self.timing_seconds += nap
+        # 遍历添加按钮
+        for i in range(25):
+            btn = Button(text=str(i), width=40 + i * 5, size_hint=(None, 0.15))
+            self.add_widget(btn)
 
-        # 通过id获取到time_label_id控件，并设置text属性值
-        self.ids.time_label_id.text = strftime('[b]%H[/b]:%M:%S')
-        m, s = divmod(self.timing_seconds, 60)
-        # 同上设置text值
-        self.ids.stopwatch.text = ('%02d:%02d.[size=40]%02d[/size]' % (int(m), int(s), int(s * 100 % 100)))
-
-    def start_or_stop(self):
-        # 切换状态
-        self.ids.start_stop_button_id.text = 'Start' if self.timing_flag else 'Stop'
-        self.timing_flag = not self.timing_flag
-
-    def reset_clock(self):
-        """重置时钟"""
-        if self.timing_flag:
-            self.ids.start_stop_button_id.text = 'Start'
-            self.timing_flag = False
-        self.timing_seconds = 0
+    def update_rect(self, *args):
+        """设置背尺寸，可忽略"""
+        self.rect.pos = self.pos
+        self.rect.size = self.size
 
 
-class Yushirui0228App(App):
+class Yushirui0222App(App):
     def build(self):
-        return ClockBoxLayout()
-
+        return YushiruiWidget()
 
 if __name__ == '__main__':
-    # 设置页面背景
-    from kivy.core.window import Window
-    Window.clearcolor = [.8, .8, .8, 1]
-    Yushirui0228App().run()
+    Yushirui0222App().run()

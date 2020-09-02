@@ -11,13 +11,22 @@ kivy.require('1.11.1')
 
 # 从kivy.app包里面导入App类
 from kivy.app import App
-
-# 从kivy.uix.label包中导入Label控件
+Label控件
 from kivy.uix.label import Label
 
 '''
 # 安装kivy，下载whl安装
 # pip install *.whl
+
+# 或者
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com --upgrade pip wheel setuptools
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com docutils pygments pypiwin32 kivy.deps.sdl2 kivy.deps.glew
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com kivy.deps.gstreamer
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com kivy.deps.angle
+pip install -i https://pypi.doubanio.com/simple/ --trusted-host pypi.doubanio.com kivy
+
+
+# 从kivy.uix.label包中导入
 
 # 打包虚拟机
 下载打包虚拟机

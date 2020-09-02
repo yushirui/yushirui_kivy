@@ -51,10 +51,11 @@ from kivy.resources import resource_add_path
 # 添加资源目录
 resource_add_path(os.path.abspath(resource_dir_path))
 
-# ======================================== kivy应用与组件 ========================================
+# ======================================== kivy应用 ========================================
 # app应用
 from kivy.app import App
 
+# ======================================== kivy组件 ========================================
 # 组件
 from kivy.uix.widget import Widget
 
@@ -64,8 +65,18 @@ from kivy.uix.label import Label
 # 按钮
 from kivy.uix.button import Button
 
+# 文本框
+from kivy.uix.textinput import TextInput
+
+# 异步图片
+from kivy.uix.image import AsyncImage
+
+# ======================================== kivy布局 ========================================
 # 线布局
 from kivy.uix.boxlayout import BoxLayout
+
+# 相对布局
+from kivy.uix.relativelayout import RelativeLayout
 
 # 浮动布局
 from kivy.uix.floatlayout import FloatLayout
@@ -79,8 +90,11 @@ from kivy.uix.anchorlayout import AnchorLayout
 # 网格布局
 from kivy.uix.gridlayout import GridLayout
 
-# 文本框
-from kivy.uix.textinput import TextInput
+# 页面布局
+from kivy.uix.pagelayout import PageLayout
+
+# 缩放布局
+from kivy.uix.scatterlayout import ScatterLayout
 
 # 图案库，矩形、颜色
 from kivy.graphics import Rectangle, Color
@@ -98,7 +112,15 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-class YushiruiWidget(AnchorLayout):
+
+
+
+
+class YushiruiWidget(ScatterLayout):
+    pass
+
+
+class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -108,19 +130,14 @@ class YushiruiWidget(AnchorLayout):
             self.rect = Rectangle(pos=self.pos, size=self.size)
             self.bind(pos=self.update_rect, size=self.update_rect)
 
-        # 嵌套第一个布局
-        anchor_first = AnchorLayout(anchor_x='left', anchor_y='top')
-        # 添加按钮
-        anchor_first.add_widget(Button(text='Hello', size_hint=[.3, .2]))
-
-        # 嵌套第二个布局
-        anchor_second = AnchorLayout(anchor_x='right', anchor_y='bottom')
-        # 添加按钮
-        anchor_second.add_widget(Button(text='Anchor', size_hint=[.3, .2]))
-
-        # 添加到父布局中
-        self.add_widget(anchor_first)
-        self.add_widget(anchor_second)
+        # 缩放布局
+        scatter_layout = ScatterLayoutWidget()
+        # 异步加载图片
+        image = AsyncImage(source='http://sck.rjkflm.com/images/logo1.png')
+        # 将图片添加到ScatterLayout布局中
+        scatter_layout.add_widget(image)
+        # 将ScatterLayout布局嵌套在BoxLayout布局中
+        self.add_widget(scatter_layout)
 
     def update_rect(self, *args):
         """设置背景尺寸，可忽略"""
@@ -128,9 +145,9 @@ class YushiruiWidget(AnchorLayout):
         self.rect.size = self.size
 
 
-class Yushirui0209App(App):
+class Yushirui0220App(App):
     def build(self):
         return YushiruiWidget()
 
-if __name__ == "__main__":
-    Yushirui0209App().run()
+if __name__ == '__main__':
+    Yushirui0220App().run()

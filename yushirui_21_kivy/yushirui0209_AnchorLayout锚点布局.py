@@ -73,6 +73,9 @@ from kivy.uix.floatlayout import FloatLayout
 # 列表布局
 from kivy.properties import ListProperty
 
+# 锚点布局
+from kivy.uix.anchorlayout import AnchorLayout
+
 # 网格布局
 from kivy.uix.gridlayout import GridLayout
 
@@ -93,31 +96,41 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class Yushirui0203App(App):
-    def build(self):
 
-        def update_rect(layout, *args):
-            """设置背景尺寸，可忽略"""
-            layout.rect.pos = layout.pos
-            layout.rect.size = layout.size
 
-        float_layout = FloatLayout()
+class YushiruiWidget(AnchorLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
 
         # 设置背景颜色（可忽略）
-        with float_layout.canvas:
+        with self.canvas:
             Color(1, 1, 1, 1)
-            float_layout.rect = Rectangle(pos=float_layout.pos, size=float_layout.size)
-            float_layout.bind(pos=update_rect, size=update_rect)
+            self.rect = Rectangle(pos=self.pos, size=self.size)
+            self.bind(pos=self.update_rect, size=self.update_rect)
 
-        # 在布局内的300，200处添加一个为布局0.3，0.2大小的按钮
-        button = Button(text='Hello FloatLayout', size_hint=(.3, .2), pos=(300, 200))
+        # 锚点布局，左上角
+        anchor_first = AnchorLayout(anchor_x='left', anchor_y='top')
+        # 锚点布局，加按钮
+        anchor_first.add_widget(Button(text='Hello', size_hint=[.3, .2]))
 
-        # 将按钮添加到布局内
-        float_layout.add_widget(button)
+        # 锚点布局，右下角
+        anchor_second = AnchorLayout(anchor_x='right', anchor_y='bottom')
+        # 锚点布局，加按钮
+        anchor_second.add_widget(Button(text='Anchor', size_hint=[.3, .2]))
 
-        # 返回布局
-        return float_layout
+        # 添加到父布局中
+        self.add_widget(anchor_first)
+        self.add_widget(anchor_second)
 
+    def update_rect(self, *args):
+        """设置背景尺寸，可忽略"""
+        self.rect.pos = self.pos
+        self.rect.size = self.size
+
+
+class Yushirui0209App(App):
+    def build(self):
+        return YushiruiWidget()
 
 if __name__ == "__main__":
-    Yushirui0203App().run()
+    Yushirui0209App().run()
