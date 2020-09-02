@@ -1,0 +1,33 @@
+<RelativeWidget>:
+    canvas.before:
+        Color:
+            rgba: [1, 1, 1, 1]
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    canvas:
+        Color:
+            rgba: [.5, .1, .1, 1]
+        Rectangle:
+            pos: self.pos
+            size: 300, 300
+
+    canvas.after:
+        Color:
+            rgba: [.1, .5, .1, 1]
+        Rectangle:
+            pos: 200, 200
+            size: 300, 300
+
+    Button:
+        text: 'Button 0'
+        pos: 100, 100
+        size_hint: None, None
+        size: 300, 300
+        canvas.after:
+            Color:
+                rgba: [.1, .1, .5, 1]
+            Rectangle:
+                pos: self.pos
+                size: 100, 100

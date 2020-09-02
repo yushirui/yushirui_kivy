@@ -1,0 +1,12 @@
+<BubbleWidget>:
+    size_hint: .5, .2
+    pos_hint: {'center_x': .5, 'center_y': .5}
+    Bubble:
+        BubbleButton:
+            text: 'Bubble'
+
+        BubbleButton:
+            text: 'Button'
+            background_normal: ''
+            background_color: .1, .5, .5, 1
+            on_release: print('Bubble Button ')

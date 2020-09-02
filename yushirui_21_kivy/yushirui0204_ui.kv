@@ -1,0 +1,38 @@
+<Button>:
+    font_size: 40
+    size_hint: 0.3, 0.3
+
+<FloatLayoutWidget>:
+
+    canvas:
+		Color:
+			rgba: [1, 1, 1, 1]
+		Rectangle:
+			size: self.size
+			pos: self.pos
+
+    Button:
+        text: "Bt0"
+        background_color: 0.1, 0.5, 0.6, 1
+        pos_hint: {"x":0, "top":1}
+
+    Button:
+        text:"Bt1"
+        background_color: 1, 0, 0, 1
+        pos_hint: {"x":0.35, "y":0.3}
+
+
+    Button:
+        text:"Bt2"
+        background_color: 0.4, 0.5, 0.6, 1
+        pos_hint: {"x":.7, "bottom":0}
+
+    Button:
+        text:"Bt3"
+        background_color: 0, 0, 1, 1
+        pos_hint: {"x":.7, "top":1}
+
+    Button:
+        text:"Bt4"
+        background_color: 0.8, 0.9, 0.2, 1
+        pos_hint: {"x":0, "bottom":1}

@@ -1,0 +1,29 @@
+<ClockBoxLayout>:
+    orientation: 'vertical'
+
+    Label:
+        id: time_label_id
+        text: '[b]00[/b]:00:00'
+        font_size: 60
+        markup: True
+
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 20
+        spacing: 20
+        size_hint: (1, None)
+        height: 90
+
+        Button:
+            id: start_stop_button_id
+            text: 'Start'
+            font_size: 25
+            bold: True
+            border: (2, 2, 2, 2)
+            on_press: root.start_or_stop()
+
+    Label:
+        id: stopwatch
+        text: '00:00.[size=40]00[/size]'
+        font_size: 60
+        markup: True

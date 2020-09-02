@@ -1,0 +1,32 @@
+<MyImage@Image>:
+    source: 'kivy-logo-black-64.png'
+    pos: self.parent.pos
+    size_hint: .5, .4
+    canvas:
+        Rotate:
+            axis: (0,0,1)
+            angle: 60
+            origin: self.center
+        Color:
+            rgba: 1,0,0,.5
+        Line:
+            rectangle: self.x, self.y, self.width, self.height
+
+
+<RotateGridLayoutWidget>:
+    cols: 2
+    canvas:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Button:
+        text: "col:1, row:1"
+
+    FloatLayout:
+        MyImage:
+
+    Button:
+        text: "col:1, row:2"

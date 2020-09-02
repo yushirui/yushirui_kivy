@@ -1,0 +1,30 @@
+<LabelBoxLayout>:
+    orientation: 'vertical'
+
+    Label:
+        text: 'can only display glyphs that is available in the font'
+        font_size: '20sp'
+        color: .9, .2, .1, 1
+        italic: True
+        text_size: cm(6), mm(20)
+        halign: 'right'
+        valign: 'middle'
+        strikethrough: True
+
+
+    Label:
+        canvas:
+            Color:
+                rgba: (.1, .1, .1, .1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        text: 'can only display glyphs that is available in the font'
+        color: .2, .2, .9, 1
+        bold: True
+        text_size: cm(4), cm(2)
+        halign: 'left'
+        valign: 'top'
+        underline: True
+        line_height: 2.0

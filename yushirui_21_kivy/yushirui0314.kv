@@ -1,0 +1,38 @@
+<MyImage@Image>:
+    source: 'kivy-logo-black-64.png'
+    pos: self.parent.pos
+    size_hint: .5, .4
+
+    canvas.before:
+        PushMatrix
+
+        Translate:
+            x: -100
+            y: 200
+            z: 0
+
+    canvas:
+        Color:
+            rgba: 1,0,0,.5
+        Line:
+            rectangle: self.x, self.y, self.width, self.height
+    canvas.after:
+        PopMatrix
+
+
+<TranslateBoxLayoutWidget>:
+    canvas:
+        Color:
+            rgba: (1, 1, 1, 1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    Button:
+        text: "Button 0"
+
+    FloatLayout:
+        MyImage:
+
+    Button:
+        text: "Button 1"

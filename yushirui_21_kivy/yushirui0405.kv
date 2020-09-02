@@ -1,0 +1,20 @@
+<LabelBoxLayout>:
+    orientation: 'vertical'
+
+    Label:
+        text: 'can only display [i]glyphs [color=#"000000"]that is available[/color] in the font[/i]'
+        font_size: '20sp'
+        color: .9, .2, .1, 1
+        markup: 1
+
+    Label:
+        canvas:
+            Color:
+                rgba: (.1, .1, .1, .1)
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        text: '[b]can only display[/b] glyphs [sup]that[/sup] is available [sub]in[/sub] the font'
+        color: .2, .2, .9, 1
+        markup: True

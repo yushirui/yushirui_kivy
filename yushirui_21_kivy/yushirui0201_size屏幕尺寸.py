@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui06_mvc设计模式
+# Message：yushirui0201_Size屏幕尺寸
 
 # 文件系统
 import os
@@ -31,7 +31,6 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
-
 # 读取配置文件
 Config.read(config_path)
 
@@ -40,7 +39,6 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
-
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -69,6 +67,9 @@ from kivy.uix.button import Button
 # 线布局
 from kivy.uix.boxlayout import BoxLayout
 
+# 浮动布局
+from kivy.uix.floatlayout import FloatLayout
+
 # 列表布局
 from kivy.properties import ListProperty
 
@@ -86,25 +87,22 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui06_mvc设计模式'
+App.title = 'yushirui0201_Size屏幕尺寸'
 
-
-# 自定义页面 = kv文件节点名（线布局）
-class YushiruiWidget(BoxLayout):
+# 自定义组件（浮动布局）
+class YushiruiWidget(FloatLayout):
     # 构造方法
     def __init__(self, **kwargs):
         # 父类构造方法
         super().__init__(**kwargs)
 
-
-# 应用类 = kv文件第一个字母大写 + App（App应用）
-class Yushirui0106App(App):
+# app类
+class Yushirui0201_uiApp(App):
     # 重构
     def build(self):
-        # 返回自定义页面
+        # 返回自定义组件
         return YushiruiWidget()
-
 
 if __name__ == '__main__':
     # 运行
-    Yushirui0106App().run()
+    Yushirui0201_uiApp().run()

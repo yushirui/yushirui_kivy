@@ -1,0 +1,36 @@
+<MyButton@Button>
+    size_hint: .2, .15
+
+<ButtonFloatLayout>:
+    Button:
+        text: 'Button 00'
+        size_hint: .2, .15
+        pos: 65, 400
+        background_normal: ''
+        background_color: [.1, .5, .5, 1]
+
+    MyButton:
+        text: 'Button 01'
+        pos: 315, 400
+        disabled: True
+
+    MyButton:
+        text: 'Button 02'
+        color: [.8, .3, .3, 1]
+        pos: 565, 400
+
+    MyButton:
+        text: 'Button 03'
+        font_size: 15
+        pos: 65, 150
+
+    MyButton:
+        text: 'Button 04'
+        font_size: 25
+        pos: 315, 150
+        state: 'normal'
+
+    MyButton:
+        text: 'Button 05'
+        pos: 565, 150
+        state: 'down'

@@ -1,0 +1,33 @@
+<Button>:
+    font_size: 20
+    size_hint: 0.2, 0.2
+
+<RelativeLayoutWidget>:
+
+    BoxLayout:
+
+    RelativeLayout:
+        Button:
+            text:"Btn0"
+            background_color: 0.1, 0.5, 0.6, 1
+            pos_hint: {"right":1, "top":1}
+
+        Button:
+            text:"Btn1"
+            background_color: 1, 0, 0, 1
+            pos_hint: {"x":0, "top":1}
+
+        Button:
+            text:"Relative"
+            background_color: 0.4, 0.5, 0.6, 1
+            pos_hint: {"center_x":.5, "center_y":.5}
+
+        Button:
+            text:"Btn2"
+            background_color: 0, 0, 1, 1
+            pos_hint: {"x":0, "y":0}
+
+        Button:
+            text:"Btn3"
+            background_color: 0.8, 0.9, 0.2, 1
+            pos_hint: {"right":1, "y":0}

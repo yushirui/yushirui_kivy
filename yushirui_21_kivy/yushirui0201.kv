@@ -1,0 +1,42 @@
+<YushiruiWidget>:
+
+    # 画布
+    canvas:
+
+        # 颜色
+		Color:
+		    # r红色，g绿色，b蓝色，a透明度
+			rgba: [1, 1, 1, 1]
+
+		# 矩形
+		Rectangle:
+
+		    # 大小
+			size: self.size
+
+			# 位置
+			pos: self.pos
+
+    # 按钮
+    Button:
+
+        # 文本
+        text: 'yushirui'
+
+        # 大小
+        size_hint: .2, .15
+
+        # 位置
+        pos_hint: {'x': 0.2, 'y': .6}
+
+    # 按钮
+    Button:
+
+        # 文本
+        text: 'xueyu'
+
+        # 大小
+        size_hint: .2, .15
+
+        # 位置
+        pos_hint: {'right': 0.8, 'top': .4}

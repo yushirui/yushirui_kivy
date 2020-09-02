@@ -1,0 +1,13 @@
+<ButtonFloatLayout>:
+    Button:
+        text: 'Button'
+        size_hint: .2, .15
+        pos_hint: {'center_x':.5, 'center_y':.5}
+        background_normal: ''
+        background_color: [.1, .5, .5, 1]
+        on_release:
+            root.release_button()
+            print('cocpy.com')
+        on_press:
+            root.press_button()
+            print('c0c.ink')
