@@ -1,24 +1,48 @@
 <YushiruiWidget>:
+
+    # 线布局
     BoxLayout:
+        # 大小
         size: root.size
+
+        # 位置
         pos: root.pos
+
+        # 垂直布局
         orientation: "vertical"
+
+        # 文件选择列表
         FileChooserListView:
+
+            # 列表
             id: filechooser
 
+        # 线布局
         BoxLayout:
+            # 相对大小y为空
             size_hint_y: None
+            # 高
             height: 30
+            # 按钮
             Button:
+                # 文本
                 text: "Cancel"
+                # 点击事件
                 on_release: root.cancel()
-
+            # 按钮
             Button:
+                # 文本
                 text: "Load"
+                # 点击事件
                 on_release: root.load(filechooser.path, filechooser.selection)
 
+# 文件选择布局
 <FileChooserBox>:
+    # 按钮
     Button:
+    # 文本
         text:"choose file"
+        # 相对大小
         size_hint: .2, .1
+        # 点击事件
         on_release: root.show_load()

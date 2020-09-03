@@ -160,13 +160,20 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-
 class VideoPlayerTest(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
-        player = VideoPlayer(source='demo0.mp4', state='play',
-                             options={'allow_stretch': True, 'eos': 'loop'})
+        # 视频播放器
+        player = VideoPlayer(
+            source='demo0.mp4',
+            state='play',
+            options={
+                'allow_stretch': True,
+                'eos': 'loop'
+            }
+        )
+        # 布局加组件（视频播放器）
         self.add_widget(player)
 
 
@@ -177,5 +184,6 @@ class Yushirui0509App(App):
 
 if __name__ == '__main__':
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    Window.clearcolor = [.8, .8, .8, 1]
     Yushirui0509App().run()

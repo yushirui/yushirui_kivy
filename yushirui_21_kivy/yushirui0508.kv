@@ -1,22 +1,44 @@
 <YushiruiWidget>:
+
+    # 相对大小
     size_hint: .5, .5
+    # 相对位置
     pos_hint: {'center_x': .5, 'center_y': .5}
+    # 默认选项卡
     do_default_tab: False
 
+    # 选项卡
     TabbedPanelItem:
+        # 文本
         text: 'first tab'
+        # 标签
         Label:
             text: 'First tab content area'
+
+    # 选项卡
     TabbedPanelItem:
+        # 文本
         text: 'tab2'
+
+        # 线布局
         BoxLayout:
+            # 标签
             Label:
+
+                # 文本
                 text: 'Second tab content area'
+            # 按钮
             Button:
+
+                # 文本
                 text: 'Button that does nothing'
+    # 选项卡
     TabbedPanelItem:
+        # 文本
         text: 'tab3'
+        # 文档
         RstDocument:
+            # 文本
             text:
                 '\\n'.join(("Hello world", "-----------",
                 "You are in the third tab."))

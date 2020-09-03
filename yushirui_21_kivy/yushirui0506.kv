@@ -1,8 +1,16 @@
 <YushiruiWidget>:
+
+    # 选项框
     Spinner:
+        # 相对大小为空
         size_hint: None, None
+        # 具体大小
         size: 100, 44
+        # 相对位置
         pos_hint: {'center': (.5, .5)}
+        # 文本
         text: 'Home'
+        # 列表选项
         values: 'Home', 'Work', 'Other', 'Custom'
+        # 切换选项
         on_text: print("The spinner's text is: ", self.text)
