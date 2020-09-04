@@ -1,10 +1,21 @@
 <YushiruiWidget>:
+
+    # 大小
     size_hint: .5, .2
+
+    # 位置
     pos_hint: {'center_x': .5, 'center_y': .5}
+
+    # 气泡
     Bubble:
+        # ？？？
         arrow_pos: 'bottom_left'
 
+    # 气泡
     Bubble:
+        # 按钮
         Button:
+            # 文本
             text: 'Bubble'
-            on_release: print('Bubble Button ')
+            # 点击事件
+            on_release: print('yushirui click')

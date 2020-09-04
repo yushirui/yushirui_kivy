@@ -164,17 +164,23 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 
 
-
+# 线布局
 class VKeyboardTest(BoxLayout):
+    # 初始化
     def __init__(self, **kwargs):
+        # 父类初始化
         super().__init__(**kwargs)
 
+        # 自定义键盘
         vk = VKeyboard()
+        # 键盘信号与槽
         vk.bind(on_key_up=self.key_up)
+        # 布局加组件（键盘）
         self.add_widget(vk)
 
+    # 键盘信号与槽
     def key_up(self, *args):
-        print('You have pressed the key is:',args[2])
+        print('余时锐输入了',args[2])
 
 
 class Yushirui0510App(App):
@@ -184,5 +190,8 @@ class Yushirui0510App(App):
 
 if __name__ == '__main__':
     from kivy.core.window import Window
+    # 窗口背景色，白色
     Window.clearcolor = [.8,.8,.8,1]
+    # 窗口背景色，黑色
+    Window.clearcolor = [0.2,0.2,0.2,1]
     Yushirui0510App().run()

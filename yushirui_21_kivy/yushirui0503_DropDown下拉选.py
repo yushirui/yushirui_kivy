@@ -159,10 +159,22 @@ class DropDownBox(BoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
+        # 下拉选
         dropdown = CustomDropDown()
+
         # 点击该按钮触发下拉框
-        main_button = Button(text='SelectItem', size_hint=(0.2, 0.15), pos_hint={'center_x':0.5, 'center_y':0.5})
+        main_button = Button(
+            # 文本
+            text='SelectItem',
+            # 相对大小
+            size_hint=(0.2, 0.15),
+            # 相对位置
+            pos_hint={'center_x':0.5, 'center_y':0.5}
+        )
+
+        # 按钮绑定信号与槽
         main_button.bind(on_release=dropdown.open)
+
         # 绑定选中后回调的方法：把 main_button 的 text 属性设置为传递过来的 x
         dropdown.bind(on_select=lambda instance, x: setattr(main_button, 'text', x))
 
