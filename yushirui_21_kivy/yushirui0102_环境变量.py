@@ -91,42 +91,42 @@ App.title = 'yushirui02_环境变量'
 
 # 继承网格布局，窗口本身就是网格布局
 class YushiruiWidget(GridLayout):
-	# 构造方法
-	def __init__(self, **kwargs):
-		# 父类构造方法
-		super(YushiruiWidget, self).__init__(**kwargs)
+    # 构造方法
+    def __init__(self, **kwargs):
+        # 父类构造方法
+        super(YushiruiWidget, self).__init__(**kwargs)
 
-		# 窗口就是网格布局，2列
-		self.cols = 2
+        # 窗口就是网格布局，2列
+        self.cols = 2
 
-		# 用户名标签
-		uname_label = Label(text='用户名')
-		# 用户名文本框（单行）
-		uname_lineedit = TextInput(multiline=False)
+        # 用户名标签
+        uname_label = Label(text='用户名')
+        # 用户名文本框（单行）
+        uname_lineedit = TextInput(multiline=False)
 
-		# 密码标签
-		pwd_label = Label(text='密码')
-		# 密码文本框（加密，单行）
-		pwd_lineedit = TextInput(password=True, multiline=False)
+        # 密码标签
+        pwd_label = Label(text='密码')
+        # 密码文本框（加密，单行）
+        pwd_lineedit = TextInput(password=True, multiline=False)
 
-		# 窗口加组件（用户名标签）
-		self.add_widget(uname_label)
-		# 窗口加组件（用户名文本框）
-		self.add_widget(uname_lineedit)
-		# 窗口加组件（密码标签）
-		self.add_widget(pwd_label)
-		# 窗口加组件（密码文本框）
-		self.add_widget(pwd_lineedit)
+        # 窗口加组件（用户名标签）
+        self.add_widget(uname_label)
+        # 窗口加组件（用户名文本框）
+        self.add_widget(uname_lineedit)
+        # 窗口加组件（密码标签）
+        self.add_widget(pwd_label)
+        # 窗口加组件（密码文本框）
+        self.add_widget(pwd_lineedit)
 
 
 # app类
 class YushiruiApp(App):
-	# 重构
-	def build(self):
-		# 返回自定义组件
-		return YushiruiWidget()
+    # 重构
+    def build(self):
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
-	# 运行
-	YushiruiApp().run()
+    # 运行
+    YushiruiApp().run()

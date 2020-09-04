@@ -15,7 +15,11 @@ Label控件
 from kivy.uix.label import Label
 
 '''
-# 安装kivy，下载whl安装
+# 安装kivy
+pyhon版本3.7以下
+
+
+# 下载whl安装
 # pip install *.whl
 
 # 或者
