@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,27 +135,42 @@ App.icon = app_icon
 App.title = 'yushirui0412_CheckBox复选框'
 
 
-
+# 自定义组件（线布局）
 class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
-        # 通过id获取到CheckBox部件并绑定方法
+        # 通过id获取复选项，复选框点击信号与槽
         self.ids.first_check_0.bind(active=self.on_checkbox_active)
 
+    # 静态方法
     @staticmethod
     def on_checkbox_active(checkbox, value):
+        # 选中
         if value:
-            print('The checkbox', checkbox, 'is active')
+            # 打印文本
+            print('复选框', checkbox, '选中')
+        # 未选中
         else:
-            print('The checkbox', checkbox, 'is inactive')
+            # 打印文本
+            print('复选框', checkbox, '未选中')
 
 
+# app类
 class Yushirui0412App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0412App().run()

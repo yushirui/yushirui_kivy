@@ -1,25 +1,39 @@
 # 自定义布局
 <YushiruiWidget>:
+
+    # 垂直布局
     orientation: 'vertical'
 
+    # 标签
     Label:
-        text: 'can only display glyphs that is available in the font'
+        # 标签文本
+        text: '如果早点了解，那率性的你，或者晚一点，遇上成熟的我，不过，oh~'
+        # 文本
         font_size: '20sp'
+        # 颜色
         color: .9, .2, .1, 1
+        # 斜体
         italic: True
+        # 字体大小
         text_size: cm(6), mm(20)
+        # 水平居右
         halign: 'right'
+        # 垂直居中
         valign: 'middle'
+        # 中间划线
         strikethrough: True
 
-
+    # 标签
     Label:
         # 画布
         canvas:
+            # 保存当前上下文环境
+            PushMatrix
+
             # 颜色
             Color:
                 # r红色，g绿色，b蓝色，a透明度
-                rgba: [1, 1, 1, 1]
+                rgba: [0.1, 0.1, 1, 1]
 
             # 矩形
             Rectangle:
@@ -28,11 +42,30 @@
                 # 绝对位置 = 组件位置
                 pos: self.pos
 
-        text: 'can only display glyphs that is available in the font'
-        color: .2, .2, .9, 1
+            # 恢复上下文环境
+            PopMatrix
+
+        # 文本
+        text: '全都怪我，不该沉默时沉默，该勇敢时软弱'
+        # 颜色
+        color: .4, .5, .5, 1
+        # 加粗
         bold: True
+        # 字体大小
         text_size: cm(4), cm(2)
+        # 水平居左
         halign: 'left'
+        # 垂直居中
         valign: 'top'
+        # 下划线
         underline: True
+        # 线条宽度
         line_height: 2.0
+
+
+
+
+
+
+
+

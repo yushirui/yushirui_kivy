@@ -137,14 +137,22 @@ App.title = 'yushirui0410_TextInput输入框'
 
 
 
+# 自定义组件（组件）
 class YushiruiWidget(Widget):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
 
+# app类
 class Yushirui0410App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 运行
     Yushirui0410App().run()

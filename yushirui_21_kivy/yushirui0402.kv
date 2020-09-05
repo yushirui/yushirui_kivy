@@ -1,40 +1,66 @@
-# 自定义布局
-<MyButton@Button>
+# 自定义按钮，继承按钮
+<YushiruiButton@Button>
+    # 相对大小
     size_hint: .2, .15
 
 # 自定义布局
 <YushiruiWidget>:
+    # 按钮
     Button:
-        text: 'Button 00'
+        # 文本
+        text: '可惜没如果'
+        # 相对大小
         size_hint: .2, .15
+        # 绝对位置
         pos: 65, 400
         # 正常背景为空
         background_normal: ''
         # 背景色
         background_color: [.1, .5, .5, 1]
 
-    MyButton:
-        text: 'Button 01'
+    # 自定义按钮
+    YushiruiButton:
+        # 文本
+        text: '想幸福的人'
+        # 绝对位置
         pos: 315, 400
+        # 不可点
         disabled: True
 
-    MyButton:
-        text: 'Button 02'
-        color: [.8, .3, .3, 1]
+    # 自定义按钮
+    YushiruiButton:
+        # 文本
+        text: '她说'
+        # 颜色，r红色，g绿色，b蓝色，a透明度
+        color: [.8, .7, .3, 1]
+        # 绝对位置
         pos: 565, 400
 
-    MyButton:
-        text: 'Button 03'
+    # 自定义按钮
+    YushiruiButton:
+        # 文本
+        text: '身骑白马'
+        # 字体大小
         font_size: 15
+        # 绝对位置
         pos: 65, 150
 
-    MyButton:
-        text: 'Button 04'
+    # 自定义按钮
+    YushiruiButton:
+        # 文本
+        text: '其实我们值得幸福'
+        # 字体大小
         font_size: 25
+        # 绝对位置
         pos: 315, 150
+        # 状态，正常
         state: 'normal'
 
-    MyButton:
-        text: 'Button 05'
+    # 自定义按钮
+    YushiruiButton:
+        # 文本
+        text: '梦里'
+        # 绝对位置
         pos: 565, 150
+        # 状态，按下
         state: 'down'

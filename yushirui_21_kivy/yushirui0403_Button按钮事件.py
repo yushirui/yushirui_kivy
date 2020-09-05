@@ -136,25 +136,34 @@ App.icon = app_icon
 App.title = 'yushirui0403_Button按钮事件'
 
 
-
-class ButtonFloatLayout(FloatLayout):
+# 自定义组件（XX布局）
+class YushiruiWidget(FloatLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
+    # 点击事件
     def press_button(self):
-        """按下按钮触发事件的回调函数"""
-        print('press_button is running')
+        print('点击事件')
 
+    # 释放事件
     def release_button(self):
-        """"按下按钮并释放时触发事件的回调函数"""
-        print('release_button is running')
+        print('释放事件')
 
+# app类
 class Yushirui0403App(App):
+    # 重构
     def build(self):
-        return ButtonFloatLayout()
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [1,1,1,1]
+
+    # 页面背景
+    Window.clearcolor = [1, 1, 1, 1]
+    # 运行
     Yushirui0403App().run()

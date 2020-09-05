@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,15 +135,22 @@ App.icon = app_icon
 App.title = 'yushirui0409_TextInput输入框'
 
 
-
+# 自定义组件（组件）
 class YushiruiWidget(Widget):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
 
+# app类
 class Yushirui0409App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 运行
     Yushirui0409App().run()

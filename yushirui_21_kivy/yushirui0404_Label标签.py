@@ -137,17 +137,25 @@ App.title = 'yushirui0404_Label标签'
 
 
 
-class LabelBoxLayout(BoxLayout):
+# 自定义组件（线布局）
+class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
-
+# app类
 class Yushirui0404App(App):
+    # 重构
     def build(self):
-        return LabelBoxLayout()
-
+        # 返回自定义组件
+        return YushiruiWidget()
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [1,1,1,1]
+
+    # 页面背景
+    Window.clearcolor = [1, 1, 1, 1]
+    # 运行
     Yushirui0404App().run()

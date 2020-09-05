@@ -147,23 +147,26 @@ App.title = 'yushirui0503_DropDown下拉选'
 
 
 
-
+# 自定义下拉选（下拉选）
 class CustomDropDown(DropDown):
-    """在kv文件中添加下拉选项"""
+    """ kv文件加下拉选项 """
     pass
 
 
-class DropDownBox(BoxLayout):
+# 自定义组件（线布局）
+class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
-        # 下拉选
+        # 下拉选 = 自定义下拉选
         dropdown = CustomDropDown()
 
         # 点击该按钮触发下拉框
         main_button = Button(
             # 文本
-            text='SelectItem',
+            text='点我',
             # 相对大小
             size_hint=(0.2, 0.15),
             # 相对位置
@@ -181,12 +184,19 @@ class DropDownBox(BoxLayout):
         runTouchApp(main_button)
 
 
+# app类
 class Yushirui0503App(App):
+    # 重构
     def build(self):
-        return DropDownBox()
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0503App().run()

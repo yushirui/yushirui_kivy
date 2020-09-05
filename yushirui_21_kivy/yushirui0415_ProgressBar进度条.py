@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,29 +135,46 @@ App.icon = app_icon
 App.title = 'yushirui0415_ProgressBar进度条'
 
 
-
+# 自定义组件（线布局）
 class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
+
+        # 初始值
         self.i = 0
 
+    # 点击事件
     def clicked(self):
-        # 每0.5s调用update_bar方法一次
+        # 点击一次后，每0.5s调用update_bar方法一次
         self.update_bar_trigger = Clock.schedule_interval(self.update_bar, 0.5)
 
+    # 更新进度条
     def update_bar(self, dt):
+        # 初始值小于100
         if self.i <= 100:
-            # 赋值
+            # id获取进度条的值 += 值
             self.ids.progress_bar.value += self.i
+            # 变量+=1
             self.i += 1
+            # 更新进度条的值
             self.update_bar_trigger()
 
 
+# app类
 class Yushirui0415App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0415App().run()

@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,20 +135,32 @@ App.icon = app_icon
 App.title = 'yushirui0416_ToggleButton单选按钮'
 
 
-
+# 自定义组件（线布局）
 class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
+        # 单选按钮 = 单选按钮（选项，组）
         tb = ToggleButton(text='Mixed', group='sex')
+        # 加布局（组件）
         self.add_widget(tb)
 
 
+# app类
 class Yushirui0416App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0416App().run()

@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,21 +135,36 @@ App.icon = app_icon
 App.title = 'yushirui0401_Button按钮'
 
 
-
+# 自定义组件（浮动布局）
 class YushiruiWidget(FloatLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
-        bt = Button(text='Button 01')
+        # 按钮
+        bt = Button(
+            text='如果早点了解，那率性的你，\n或者晚一点，遇上成熟的我，\n不过，oh~',
+            font_size=50
+        )
+
+        # 加组件（按钮）
         self.add_widget(bt)
 
 
-class Yushirui0401App(App):
+# app类
+class Yushirui0201App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [1,1,1,1]
-    Yushirui0401App().run()
+
+    # 页面背景
+    Window.clearcolor = [1, 1, 1, 1]
+    # 运行
+    Yushirui0201App().run()

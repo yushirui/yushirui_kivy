@@ -153,19 +153,30 @@ App.icon = app_icon
 App.title = 'yushirui0507_RecycleView遍历显示数据'
 
 
-
-
+# 自定义组件（线布局）
 class YushiruiWidget(RecycleView):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
+
+        # 数据
         self.data = [{'text': str(x)} for x in range(100)]
 
 
+# app类
 class Yushirui0507App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0507App().run()

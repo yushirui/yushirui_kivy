@@ -124,7 +124,6 @@ from kivy.graphics.instructions import InstructionGroup
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
 
-
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
 app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
@@ -136,30 +135,45 @@ App.icon = app_icon
 App.title = 'yushirui0406_Label标签'
 
 
-class LabelBoxLayout(BoxLayout):
+# 自定义组件（线布局）
+class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
-        # 设置引用时 markup 属性必须设置为真（True、1等）
-        # 将“Label”文本标记，单击“Label”文本时会触发绑定的事件，单击“Hello”文本则不会
-        label_ref = Label(text='Hello[ref=label] Label[/ref]', markup=True, color=(.9, .2, .1, 1))
+        # 设置引用时markup属性必须设置为真（True、1等）
+        # Label文本标记
+        # 单击【不该沉默时沉默，该勇敢时软弱】触发绑定的事件
+        # 单击【全都怪我，】无事件
+        label_ref = Label(text='全都怪我，[ref=label]不该沉默时沉默，该勇敢时软弱[/ref]', markup=True, color=(.9, .2, .1, 1))
 
         # 绑定触发事件，回调方法
         label_ref.bind(on_ref_press=self.print_it)
+
+        # 布局加组件（按钮）
         self.add_widget(label_ref)
 
     # 未使用到self，建议设置为静态方法
     @staticmethod
     def print_it(*args):
-        print('print_it is running')
+        # 打印文本
+        print('不该沉默时沉默，该勇敢时软弱')
 
 
+# app类
 class Yushirui0406App(App):
+    # 重构
     def build(self):
-        return LabelBoxLayout()
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [1,1,1,1]
+
+    # 页面背景
+    Window.clearcolor = [1, 1, 1, 1]
+    # 运行
     Yushirui0406App().run()

@@ -141,26 +141,44 @@ App.title = 'yushirui0418_Video视频'
 
 
 
+# 自定义组件（线布局）
 class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
+        # 进度位置变化
         def on_position_change(instance, value):
-            print('The position in the video is', value)
+            # 打印文本
+            print('进度位置变化', value)
 
+        # 持续时间变化
         def on_duration_change(instance, value):
-            print('The duration of the video is', value)
+            # 打印文本
+            print('持续时间变化', value)
 
+        # 视频
         video = Video(source='34.mp4', state='play')
+        # 视频信号与槽
         video.bind(position=on_position_change, duration=on_duration_change)
+
+        # 加组件（视频）
         self.add_widget(video)
 
 
+# app类
 class Yushirui0418App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
 if __name__ == '__main__':
+    # 窗口
     from kivy.core.window import Window
-    Window.clearcolor = [.8,.8,.8,1]
+
+    # 页面背景
+    Window.clearcolor = [.8, .8, .8, 1]
+    # 运行
     Yushirui0418App().run()
