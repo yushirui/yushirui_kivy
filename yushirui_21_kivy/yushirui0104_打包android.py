@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui04_打包android
-
+# Message：yushirui0104_打包android
 from kivy.app import App
 from kivy.uix.button import Button
 from kivy.uix.boxlayout import BoxLayout

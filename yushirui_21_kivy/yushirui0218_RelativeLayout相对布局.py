@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui0201_Size屏幕尺寸
-
+# Message：yushirui0218_RelativeLayout相对布局
 # 文件系统
 import os
 
@@ -101,8 +100,7 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui0201_Size屏幕尺寸'
-
+App.title = 'yushirui0218_RelativeLayout相对布局'
 
 # 相对大小，相对父布局大小，不是窗口大小
 

@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui0201_Size屏幕尺寸
-
+# Message：yushirui0201_size大小
 # 文件系统
 import os
 
@@ -87,8 +86,7 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui0201_Size屏幕尺寸'
-
+App.title = 'yushirui0201_size大小'
 # 自定义组件（浮动布局）
 class YushiruiWidget(FloatLayout):
     # 构造方法

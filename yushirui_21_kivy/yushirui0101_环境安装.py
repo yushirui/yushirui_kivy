@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：环境安装
-
+# Message：yushirui0101_环境安装
 # kivy
 import kivy
 

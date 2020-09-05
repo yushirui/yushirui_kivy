@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui02_环境变量
-
+# Message：yushirui0102_环境变量
 # 文件系统
 import os
 
@@ -86,8 +85,7 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui02_环境变量'
-
+App.title = 'yushirui0102_环境变量'
 
 # 继承网格布局，窗口本身就是网格布局
 class YushiruiWidget(GridLayout):

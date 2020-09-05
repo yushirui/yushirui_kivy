@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui0201_Size屏幕尺寸
-
+# Message：yushirui0301_Canvas页面颜色
 # ======================================== 标准库 ========================================
 # 文件系统
 import os
@@ -121,8 +120,7 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui0201_Size屏幕尺寸'
-
+App.title = 'yushirui0301_Canvas页面颜色'
 
 class YushiruiWidget(BoxLayout):
     def __init__(self, **kwargs):

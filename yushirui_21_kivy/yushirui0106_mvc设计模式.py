@@ -1,8 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui06_mvc设计模式
-
+# Message：yushirui0106_mvc设计模式
 # 文件系统
 import os
 
@@ -86,8 +85,7 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui06_mvc设计模式'
-
+App.title = 'yushirui0106_mvc设计模式'
 
 # 自定义页面 = kv文件节点名（线布局）
 class YushiruiWidget(BoxLayout):
