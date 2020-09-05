@@ -1,33 +1,66 @@
+# 自定义布局
 <YushiruiWidget>:
+    # 画布前
     canvas.before:
+        # 颜色
         Color:
+            # r红色，g绿色，b蓝色，a透明度
             rgba: [1, 1, 1, 1]
+
+        # 矩形
         Rectangle:
-            pos: self.pos
+            # 绝对大小 = 组件大小
             size: self.size
-
-    canvas:
-        Color:
-            rgba: [.5, .1, .1, 1]
-        Rectangle:
+            # 绝对位置 = 组件位置
             pos: self.pos
-            size: 300, 300
 
-    canvas.after:
+    # 画布
+    canvas:
+        # 颜色
         Color:
-            rgba: [.1, .5, .1, 1]
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [.5, .1, .1, 1]
+
+        # 矩形
         Rectangle:
+            # 绝对位置 = 组件位置
+            pos: self.pos
+            # 绝对大小 = 组件大小
+            size: 300, 300
+    # 画布后
+    canvas.after:
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [.1, .5, .1, 1]
+
+        # 矩形
+        Rectangle:
+            # 绝对位置
             pos: 200, 200
+            # 绝对大小 = 组件大小
             size: 300, 300
 
+    # 按钮
     Button:
-        text: 'Button 0'
+        # 文本
+        text: 'yushirui'
+        # 位置
         pos: 100, 100
+        # 按钮相对大小为空
         size_hint: None, None
+        # 绝对大小，具体值
         size: 300, 300
+
+        # 画布后
         canvas.after:
+             # 颜色
             Color:
+                # r红色，g绿色，b蓝色，a透明度
                 rgba: [.1, .1, .5, 1]
+             # 矩形
             Rectangle:
+                # 绝对位置 = 组件位置
                 pos: self.pos
+                # 绝对大小 = 组件大小
                 size: 100, 100

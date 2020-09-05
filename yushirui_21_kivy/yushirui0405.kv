@@ -1,3 +1,4 @@
+# 自定义布局
 <YushiruiWidget>:
     orientation: 'vertical'
 
@@ -8,12 +9,19 @@
         markup: 1
 
     Label:
+        # 画布
         canvas:
+            # 颜色
             Color:
-                rgba: (.1, .1, .1, .1)
+                # r红色，g绿色，b蓝色，a透明度
+                rgba: [1, 1, 1, 1]
+
+            # 矩形
             Rectangle:
-                pos: self.pos
+                # 绝对大小 = 组件大小
                 size: self.size
+                # 绝对位置 = 组件位置
+                pos: self.pos
 
         text: '[b]can only display[/b] glyphs [sup]that[/sup] is available [sub]in[/sub] the font'
         color: .2, .2, .9, 1

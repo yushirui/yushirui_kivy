@@ -1,11 +1,17 @@
+# 自定义布局
 <YushiruiWidget>:
+    # 画布
     canvas:
-		Color:
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
 			rgba: [.5, .1, .1, 1]
 
 		# 椭圆
 		Ellipse:
+		    # 具体大小
 			size: self.width*0.3, self.height*0.25
+			# 具体位置
 			pos: self.x+300,self.top-300
 			# 起始角
 			angle_start: 120

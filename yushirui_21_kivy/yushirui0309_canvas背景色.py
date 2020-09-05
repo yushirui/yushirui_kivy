@@ -125,21 +125,34 @@ App.icon = app_icon
 App.title = 'yushirui0309_canvas背景色'
 
 
+# 自定义组件（相对布局）
 class YushiruiWidget(RelativeLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
+        # 设置背景颜色（可忽略）
         with self.canvas:
+            # 背景颜色，rgba格式，通常值为0-1之间（具体的值 / 255）
             Color(0, 0, 1, 0.2)
+            # 矩形（位置=位置，大小=大小）
             Rectangle(pos=self.pos, size=(300, 300))
 
+            # 背景颜色，rgba格式，通常值为0-1之间（具体的值 / 255）
             Color(0, 1, 0, 0.4)
+            # 矩形（位置=位置，大小=大小）
             Rectangle(pos=(300, 300), size=(300, 300))
 
 
+# app类
 class Yushirui0309App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 运行
     Yushirui0309App().run()

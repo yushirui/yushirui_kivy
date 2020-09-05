@@ -1,11 +1,21 @@
+# 自定义布局
 <YushiruiWidget>:
+    # 画布
     canvas:
+        # 颜色
         Color:
+            # r红色，g绿色，b蓝色，a透明度
             rgba: [1, 1, 1, 1]
+
+        # 矩形
         Rectangle:
+            # 绝对大小 = 组件大小
             size: self.width + 20, self.height + 20
+            # 绝对位置 = 组件位置
             pos: self.x - 10, self.y - 10
+            # 图片
             source: 'back.jpg'
+
 
     Image:
         source: 'C:/Users/Administrator/Desktop/myback.jpg'

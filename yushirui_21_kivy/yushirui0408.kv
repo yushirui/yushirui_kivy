@@ -1,10 +1,19 @@
+# 自定义布局
 <YushiruiWidget>:
+    # 画布
     canvas:
+        # 颜色
         Color:
+            # r红色，g绿色，b蓝色，a透明度
             rgba: [1, 1, 1, 1]
+
+        # 矩形
         Rectangle:
+            # 绝对大小 = 组件大小
             size: self.size
+            # 绝对位置 = 组件位置
             pos: self.pos
+            # 图片
             source: 'back.jpg'
 
     AsyncImage:

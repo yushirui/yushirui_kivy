@@ -1,40 +1,76 @@
-<MyImage@Image>:
-    source: 'kivy-logo-black-64.png'
+# 自定义图片，继承图片
+<YushiruiImage@Image>:
+
+    # 资源
+    source: '../common/image/yu.ico'
+
+     # 位置，父布局位置
     pos: self.parent.pos
+
+    # 相对大小
     size_hint: .5, .4
 
+    # 画布前
     canvas.before:
+
+        # 保存当前上下文环境
         PushMatrix
 
         # 平移
         Translate:
             # x距离
             x: -100
+            # y距离
             y: 200
+            # z距离
             z: 0
-
+    # 画布
     canvas:
+        # 颜色
         Color:
+            # r红色，g绿色，b蓝色，a透明度
             rgba: 1,0,0,.5
+
+        # 线
         Line:
+            # 矩形
             rectangle: self.x, self.y, self.width, self.height
+
+
+    # 画布后
     canvas.after:
+
+        # 恢复上下文环境
         PopMatrix
 
 
+# 自定义布局
 <YushiruiWidget>:
+    # 画布
     canvas:
+        # 颜色
         Color:
-            rgba: (1, 1, 1, 1)
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [1, 1, 1, 1]
+
+        # 矩形
         Rectangle:
-            pos: self.pos
+            # 绝对大小 = 组件大小
             size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
 
+    # 按钮
     Button:
-        text: "Button 0"
+        # 文本
+        text: "金海心"
 
+    # 浮动布局
     FloatLayout:
-        MyImage:
+        # 自定义图片
+        YushiruiImage:
 
+    # 按钮
     Button:
-        text: "Button 1"
+        # 文本
+        text: "萨顶顶"

@@ -1,13 +1,17 @@
+# 自定义布局
 <YushiruiWidget>:
+    # 画布
     canvas:
-		Color:
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
 			rgba: [0, .5, .1, 1]
 
 		# 矩形
 		Rectangle:
-		    # 位置
+		    # 具体大小
+			size: self.width*0.2, self.height*0.15
+		    # 具体位置
 			pos: self.x+10,self.y+10
 
-		    # 大小
-			size: self.width*0.2, self.height*0.15
 

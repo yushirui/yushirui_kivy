@@ -125,14 +125,26 @@ App.icon = app_icon
 App.title = 'yushirui0311_Rotate旋转'
 
 
+# 自定义组件（网格布局）
 class YushiruiWidget(GridLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
 
+# app类
 class Yushirui0311App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
+    # 运行
     Yushirui0311App().run()
+
+
+
+

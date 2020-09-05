@@ -1,3 +1,23 @@
+#:import C kivy.utils.get_color_from_hex
+
+<BottomColorButton@FrameToggleButton>:
+    group: 'color'
+    background_normal: 'radio_background_normal.png'
+    background_down: 'radio_background_down.png'
+    border: (3, 3, 3, 3)
+    on_release: app.canvas_widget.change_color(self.background_color)
+
+<LineWidthButton@FrameToggleButton>:
+    group: 'line_width'
+    color: C('#2c3e50')
+    background_color: C('#ecf0f1')
+    background_normal: 'radio_background_normal.png'
+    background_down: 'radio_background_down.png'
+    border: (3, 3, 3, 3)
+    on_release: app.canvas_widget.change_line_width(self.text)
+
+
+# 自定义布局
 <YushiruiWidget>:
     canvas.before:
         Color:
@@ -5,3 +25,91 @@
         Rectangle:
             pos: self.pos
             size: self.size
+
+    BoxLayout:
+        orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+        x: 0
+        top: root.top
+        size_hint: None, None
+        size: 280, 44
+
+        LineWidthButton:
+            text: 'Thin'
+        LineWidthButton:
+            text: 'Normal'
+            state: 'down'
+        LineWidthButton:
+            text: 'Thick'
+        Button:
+            text: 'Clear'
+            on_release: root.clear_canvas()
+
+    BoxLayout:
+        id: bottom_box
+        orientation: 'horizontal'
+        padding: 2
+        spacing: 2
+        size: root.width, 40
+
+        BottomColorButton:
+            background_color: C('#19caad')
+            state: 'down'
+
+        BottomColorButton:
+            background_color: C('#8cc7b5')
+
+        BottomColorButton:
+            background_color: C('#a0eee1')
+
+        BottomColorButton:
+            background_color: C('#bee7e9')
+
+        BottomColorButton:
+            background_color: C('#beedc7')
+
+        BottomColorButton:
+            background_color: C('#d6d5b7')
+
+        BottomColorButton:
+            background_color: C('#d1ba74')
+
+        BottomColorButton:
+            background_color: C('#e6ceac')
+
+        BottomColorButton:
+            background_color: C('#ecad9e')
+
+        BottomColorButton:
+            background_color: C('#f4606c')
+
+        BottomColorButton:
+            background_color: C('#3498db')
+
+        BottomColorButton:
+            background_color: C('#1abc9c')
+
+        BottomColorButton:
+            background_color: C('#2ecc71')
+
+        BottomColorButton:
+            background_color: C('#f1c40f')
+
+        BottomColorButton:
+            background_color: C('#e67e22')
+
+        BottomColorButton:
+            background_color: C('#e74c3c')
+
+        BottomColorButton:
+            background_color: C('#9b59b6')
+
+        BottomColorButton:
+            background_color: C('#ecf0f1')
+
+        BottomColorButton:
+            background_color: C('#95a5a6')
+
+        BottomColorButton:
+            background_color: C('#000000')

@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 # Author：余时锐
 # Date: 2020-06-22
-# Message：yushirui0317_
+# Message：yushirui0320_画板
 # ======================================== 标准库 ========================================
 # 文件系统
 import os
@@ -77,6 +77,12 @@ from kivy.uix.textinput import TextInput
 # 异步图片
 from kivy.uix.image import AsyncImage
 
+# 开关
+from kivy.uix.togglebutton import ToggleButton
+
+# 开关改变状态
+from kivy.uix.behaviors import ToggleButtonBehavior
+
 # ======================================== kivy布局 ========================================
 # 线布局
 from kivy.uix.boxlayout import BoxLayout
@@ -112,11 +118,12 @@ from kivy.clock import Clock
 # 图案库，矩形、颜色、线
 from kivy.graphics import Rectangle, Color, Line
 
-# ？？？
+# 图片指示组
 from kivy.graphics.instructions import InstructionGroup
 
 # 十六进制颜色
 from kivy.utils import get_color_from_hex
+
 
 # ======================================== 图标与标题 ========================================
 # 查找应用图标
@@ -126,7 +133,15 @@ app_icon = yushirui_find_file_or_dir('common/image/yu.ico')
 App.icon = app_icon
 
 # 标题
-App.title = 'yushirui0317_'
+App.title = 'yushirui0320_画板'
+
+
+class FrameToggleButton(ToggleButton):
+    """当前按钮添加边框"""
+    def do_press(self):
+        """点击改变状态"""
+        if self.state == 'normal':
+            ToggleButtonBehavior.do_press(self)
 
 
 class YushiruiWidget(Widget):
@@ -150,15 +165,28 @@ class YushiruiWidget(Widget):
 
     def change_color(self, new_color):
         """调色"""
-        # self.last_color = new_color
+        self.last_color = new_color
         self.canvas.add(Color(*new_color))
 
+    def change_line_width(self, line_width='Normal'):
+        """线宽"""
+        self.line_width = {'Thin': 1, 'Normal': 2, 'Thick': 4}[line_width]
 
-class Yushirui0317App(App):
+    def clear_canvas(self):
+        """清空"""
+        saved = self.children[:]
+        self.clear_widgets()
+        self.canvas.clear()
+        for widget in saved:
+            self.add_widget(widget)
+        self.change_color(self.last_color)
+
+
+class Yushirui0316App(App):
     def build(self):
-        self.canvas_widget = DrawCanvasWidget()
+        self.canvas_widget = YushiruiWidget()
         return self.canvas_widget
 
 
 if __name__ == '__main__':
-    Yushirui0317App().run()
+    Yushirui0316App().run()
