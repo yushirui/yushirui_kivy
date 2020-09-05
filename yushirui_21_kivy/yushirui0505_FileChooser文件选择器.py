@@ -151,9 +151,11 @@ App.title = 'yushirui0505_FileChooser文件选择器'
 
 
 
-
-class MyFileChooser(BoxLayout):
+# 自定义文件选择器（选择器）
+class YushiruiFileChooser(BoxLayout):
+    # 加载
     load = ObjectProperty(None)
+    # 关闭
     cancel = ObjectProperty(None)
 
 
@@ -164,19 +166,22 @@ class YushiruiWidget(BoxLayout):
         # 父类构造方法
         super().__init__(**kwargs)
 
+    # 加载文件
     loadfile = ObjectProperty(None)
 
-
+    # 显示加载
     def show_load(self):
-        content = MyFileChooser(load=self.load, cancel=self.dismiss_popup)
+        content = YushiruiFileChooser(load=self.load, cancel=self.dismiss_popup)
         # 打开一个弹窗
         self._popup = Popup(title="Load file", content=content, size_hint=(0.9, 0.9))
         self._popup.open()
 
+    # 加载
     def load(self, path, filename):
         print(path, filename)
         self.dismiss_popup()
 
+    # 关闭
     def dismiss_popup(self):
         # 关闭弹窗
         self._popup.dismiss()
