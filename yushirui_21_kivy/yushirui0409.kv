@@ -1,5 +1,6 @@
 # 自定义布局
 <YushiruiWidget>:
+
     # 画布
     canvas:
         # 颜色
@@ -14,19 +15,33 @@
             # 绝对位置 = 组件位置
             pos: self.pos
 
+    # 输入框
     TextInput:
-        text: 'c0c.ink'
+        # 文本
+        text: '年少有为'
+        # 不允许多行
         multiline: False
+        # 绝对位置
         pos: 400, 380
+        # 不允许复制
         allow_copy: False
 
+    # 输入框
     TextInput:
-        text: 'cocpy.com'
+        # 文本
+        text: '青春住了谁'
+        # 位置
         pos: 100, 180
+        # 水平居中
         halign: 'center'
+        # 背景色
         background_color: 100, 2, 2, 1
 
+    # 输入框
     TextInput:
-        text: 'first'
+        # 文本
+        text: '梦里'
+        # 绝对位置
         pos: 400, 180
+        # 只读
         readonly: True

@@ -1,17 +1,33 @@
 # 自定义布局
 <YushiruiWidget>:
+
+    # 垂直布局
     orientation: 'vertical'
 
+    # 滑块
     Slider:
+        # 最小值
         min: 0
+        # 最大值
         max: 100
+
+    # 滑块
     Slider:
-        id: slider_move
-        orientation: 'vertical'
+        # 最小值
         min: -100
+        # 最大值
         max: 100
+        # 步长
         step: 10
+        # id
+        id: slider_move
+        # 方向垂直
+        orientation: 'vertical'
+        # 显示轨迹
         value_track: True
+        # 轨迹颜色
         value_track_color: [1, 0, 0, 1]
+        # 当前值
         value: 25
+        # 绝对位置
         pos: 200, 400

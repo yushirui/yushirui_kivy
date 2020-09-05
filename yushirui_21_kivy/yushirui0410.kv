@@ -14,24 +14,47 @@
             # 绝对位置 = 组件位置
             pos: self.pos
 
+    # 输入框
     TextInput:
-        text: 'c0c.ink'
+        # 文本
+        text: '年少有为'
+        # 不允许多行
         multiline: False
+        # 绝对位置
         pos: 400, 380
+        # 不允许复制
         allow_copy: False
+        # 事件，移动位置
         on_text_validate: self.pos=[self.x, self.y-5]
 
+    # 输入框
     TextInput:
-        text: 'cocpy.com'
+        # 文本
+        text: '青春住了谁'
+        # 位置
         pos: 100, 180
+        # 水平居中
         halign: 'center'
+        # 背景色
         background_color: 100, 2, 2, 1
+        # 事件，移动位置
         on_text: self.pos=[self.x+5, self.y]
 
+
+    # 输入框
     TextInput:
-        text: 'first'
+        # 文本
+        text: '梦里'
+        # 绝对位置
         pos: 400, 180
+        # 只读
         readonly: True
+        # 双击事件，移动位置
         on_double_tap: self.pos=[self.x-5, self.y]
+        # 三击事件，移动位置
         on_triple_tap: self.pos=[self.x, self.y+5]
+        # 四指事件，移动位置
         on_quad_touch: self.pos=[400, 180]
+
+
+

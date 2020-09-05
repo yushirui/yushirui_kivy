@@ -1,24 +1,42 @@
-# 自定义布局
+# 导入工厂
 #: import Factory kivy.factory.Factory
-<MyPopup@Popup>:
+
+# 自定义弹窗，继承弹窗
+<YushiruiPopup@Popup>:
+    # 不自动关闭下拉选
     auto_dismiss: False
-    title: 'Hello Popup'
-    on_dismiss: print('on_dismiss is running')
-    on_open: print('on_open is running')
+    # 弹窗标题
+    title: '歌手'
+    # 点击事件
+    on_dismiss: print('点击事件')
+    # 打开事件
+    on_open: print('打开事件')
+    # 相对大小
     size_hint: .8, .8
 
     # 锚点布局
     AnchorLayout:
+        # 水平居中
         anchor_x: 'center'
+        # 垂直居下
         anchor_y: 'bottom'
+        # 按钮
         Button:
+            # 文本
             text: 'Close Popup!'
+            # 按钮相对大小为空
             size_hint: None, None
+            # 绝对大小，具体值
             size: 100, 60
+            # 点击事件
             on_release: root.dismiss()
-
+# 弹窗
 <PopupBox>:
+    # 按钮
     Button:
+        # 文本
         text: 'Open popup'
+        # 大小
         size: 100, 120
-        on_release: Factory.MyPopup().open()
+        # 点击事件
+        on_release: Factory.YushiruiPopup().open()

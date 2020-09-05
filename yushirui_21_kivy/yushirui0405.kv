@@ -1,11 +1,18 @@
 # 自定义布局
 <YushiruiWidget>:
+
+    # 垂直布局
     orientation: 'vertical'
 
+    # 标签
     Label:
-        text: 'can only display [i]glyphs [color=#"000000"]that is available[/color] in the font[/i]'
+        # 文本
+        text: '如果早点了解，[i]那率性的你，[color=#"000000"]或者晚一点，遇上成熟的我， [/color] 不过[/i]'
+        # 字体大小
         font_size: '20sp'
+        # 颜色
         color: .9, .2, .1, 1
+        # 文本标签的html生效
         markup: 1
 
     Label:
@@ -22,7 +29,9 @@
                 size: self.size
                 # 绝对位置 = 组件位置
                 pos: self.pos
-
-        text: '[b]can only display[/b] glyphs [sup]that[/sup] is available [sub]in[/sub] the font'
+        # 文本
+        text: '[b]如果早点了解，[/b] 那率性的你， [sup]或者晚一点，[/sup]遇上成熟的我，[sub]不过[/sub] oh~'
+        # 颜色
         color: .2, .2, .9, 1
+        # 文本标签的html生效
         markup: True

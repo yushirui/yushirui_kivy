@@ -1,6 +1,10 @@
 # 自定义布局
 <YushiruiWidget>:
+
+    # 垂直布局
     orientation: 'vertical'
+
+    # 标签
     Label:
         # 画布
         canvas:
@@ -16,9 +20,14 @@
                 # 绝对位置 = 组件位置
                 pos: self.pos
 
-        text: '[ref="click"]can only display[/ref] glyphs that is available in the font'
+        # 文本
+        text: '[ref="click"]金海心[/ref] 萨顶顶'
+        # 颜色
         color: .2, .2, .9, 1
+        # 文本html标签生效
         markup: True
+        # ref点击事件
         on_ref_press:
-            print('ref named click is running')
+            print('你点击了金海心')
+            # 父组件的打印方法
             root.print_it()
