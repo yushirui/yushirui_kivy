@@ -113,14 +113,22 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
+# 自定义组件（堆栈布局）
 class YushiruiWidget(StackLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
 
+# app类
 class Yushirui0224App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == '__main__':
+    # 运行
     Yushirui0224App().run()

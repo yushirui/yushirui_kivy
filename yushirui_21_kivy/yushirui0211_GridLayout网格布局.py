@@ -95,15 +95,20 @@ App.icon = app_icon
 # 标题
 App.title = 'yushirui0201_Size屏幕尺寸'
 
-
+# 自定义组件（网格布局）
 class YushiruiWidget(GridLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
         # 设置背景颜色（可忽略）
         with self.canvas:
+            # 背景颜色
             Color(1, 1, 1, 1)
+            # 浮动布局矩形 = 矩形（位置=布局位置，大小=布局大小）
             self.rect = Rectangle(pos=self.pos, size=self.size)
+            # 浮动布局绑定（位置=布局矩形位置，大小=设置背景尺寸）
             self.bind(pos=self.update_rect, size=self.update_rect)
 
         # 指定列数(行数使用rows)
@@ -111,18 +116,27 @@ class YushiruiWidget(GridLayout):
 
         # 添加按钮
         for i in range(5):
-            btn = Button(text=str(i))
+            # 按钮
+            btn = Button(text='余时锐' + str(i+1))
+            # 加组件（按钮）
             self.add_widget(btn)
 
+    # 设置背景尺寸，可忽略
     def update_rect(self, *args):
-        """设置背尺寸，可忽略"""
+        # 布局矩形位置 = 布局位置
         self.rect.pos = self.pos
+        # 布局矩形大小 = 布局大小
         self.rect.size = self.size
 
 
+# app类
 class Yushirui0211App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
+    # 运行
     Yushirui0211App().run()

@@ -1,47 +1,70 @@
-
 # 自定义按钮
 <Button>:
     # 字体大小
     font_size: 40
-
     # 相对大小
     size_hint: 0.3, 0.3
 
+
+# 自定义布局
 <YushiruiWidget>:
 
+    # 画布
     canvas:
-		Color:
-			rgba: [1, 1, 1, 1]
-		Rectangle:
-			size: self.size
-			pos: self.pos
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [1, 1, 1, 1]
 
+        # 矩形
+        Rectangle:
+            # 绝对大小 = 组件大小
+            size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
+
+    # 按钮
     Button:
-        text: "Bt0"
-
+        # 文本
+        text: "余时锐左上"
         # 背景色
         background_color: 0.1, 0.5, 0.6, 1
-
         # 相对位置，按钮左边x与窗口左边相对0，按钮顶与窗口下边相对1
         pos_hint: {"x":0, "top":1}
 
+    # 按钮
     Button:
-        text:"Bt1"
+        # 文本
+        text:"余时锐居中"
+        # 背景色
         background_color: 1, 0, 0, 1
+        # 相对位置
         pos_hint: {"x":0.35, "y":0.3}
 
 
+    # 按钮
     Button:
-        text:"Bt2"
+        # 文本
+        text:"余时锐右下"
+        # 背景色
         background_color: 0.4, 0.5, 0.6, 1
+        # 相对位置
         pos_hint: {"x":.7, "bottom":0}
 
+    # 按钮
     Button:
-        text:"Bt3"
+        # 文本
+        text:"余时锐右上"
+        # 背景色
         background_color: 0, 0, 1, 1
+        # 相对位置
         pos_hint: {"x":.7, "top":1}
 
+    # 按钮
     Button:
-        text:"Bt4"
+        # 文本
+        text:"余时锐左下"
+        # 背景色
         background_color: 0.8, 0.9, 0.2, 1
+        # 相对位置
         pos_hint: {"x":0, "bottom":1}

@@ -124,40 +124,82 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class ClockBoxLayout(BoxLayout):
+# 自定义组件（线布局）
+class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
+
+        # 时间标记，计时中
         self.timing_flag = False
+
+        # 初始化时间
         self.timing_seconds = 0
+
+        # 开始计时
         self.on_start()
 
+    # 开始计时
     def on_start(self):
-        # 每过0秒执行一次update_time方法
+
+        # 每隔n秒，执行一次函数（要执行的函数-更新时间，0秒）
         Clock.schedule_interval(self.update_time, 0)
 
+    # 更新时间（时间）
     def update_time(self, nap):
+        # 时间标记，计时中
         if self.timing_flag:
+            # 时间 += 时间
             self.timing_seconds += nap
 
-        # 通过id获取到time_label_id控件，并设置text属性值
+        # 通过id获取标签的文本，'[b]00[/b]:00:00'
+        # print(strftime('[b]%H[/b]:%M:%S'))
         self.ids.time_label_id.text = strftime('[b]%H[/b]:%M:%S')
+
+        # 求商（分钟）和余数（秒）
         m, s = divmod(self.timing_seconds, 60)
+
         # 同上设置text值
         self.ids.stopwatch.text = ('%02d:%02d.[size=40]%02d[/size]' % (int(m), int(s), int(s * 100 % 100)))
 
+    # 启动或停止计时
     def start_or_stop(self):
+
         # 切换状态
         self.ids.start_stop_button_id.text = 'Start' if self.timing_flag else 'Stop'
+
+        # 时间标记，取反
         self.timing_flag = not self.timing_flag
 
+    # 重置时钟
+    def reset_clock(self):
 
-class Yushirui0227App(App):
+        # 时间标记，计时中
+        if self.timing_flag:
+            # 开始按钮文本 = 开始
+            self.ids.start_stop_button_id.text = 'Start'
+
+            # 时间标记，停止
+            self.timing_flag = False
+
+        # 初始化时间
+        self.timing_seconds = 0
+
+
+# app类
+class Yushirui0225App(App):
+    # 重构
     def build(self):
-        return ClockBoxLayout()
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == '__main__':
-    # 设置页面背景
+    # 窗口
     from kivy.core.window import Window
+
+    # 页面背景
     Window.clearcolor = [.8, .8, .8, 1]
-    Yushirui0227App().run()
+    # 运行
+    Yushirui0225App().run()

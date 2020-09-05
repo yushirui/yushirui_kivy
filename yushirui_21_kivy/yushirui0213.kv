@@ -1,3 +1,4 @@
+# 自定义布局
 <YushiruiWidget>:
     # 布局组件间隙
     padding: 20
@@ -20,15 +21,25 @@
     # 默认行高
     row_default_height: 40
 
+    # 画布
     canvas:
-		Color:
-			rgba: [1, 1, 1, 1]
-		Rectangle:
-			size: self.size
-			pos: self.pos
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [1, 1, 1, 1]
 
+        # 矩形
+        Rectangle:
+            # 绝对大小 = 组件大小
+            size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
+
+
+    # 按钮
     Button:
-        text: 'First'
+        # 文本
+        text: '余时锐1'
 
         # 组合使用
         # 相对大小空
@@ -36,11 +47,17 @@
         # 宽度
         width: '100px'
 
+    # 按钮
     Button:
-        text: 'Second'
+        # 文本
+        text: '余时锐2'
 
+    # 按钮
     Button:
-        text: 'Third'
+        # 文本
+        text: '余时锐3'
 
+    # 按钮
     Button:
-        text: 'Fourth'
+        # 文本
+        text: '余时锐4'

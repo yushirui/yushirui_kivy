@@ -92,8 +92,9 @@ App.icon = app_icon
 # 标题
 App.title = 'yushirui0201_Size屏幕尺寸'
 
-
+# 应用
 class Yushirui0203App(App):
+    # 重构
     def build(self):
 
         # 设置背景尺寸（布局）
@@ -118,7 +119,7 @@ class Yushirui0203App(App):
         # 在布局内的300，200处添加一个为布局0.3，0.2大小的按钮
         button = Button(text='Hello FloatLayout', size_hint=(.3, .2), pos=(300, 200))
 
-        # 将按钮添加到布局内
+        # 布局加组件（按钮）
         float_layout.add_widget(button)
 
         # 返回布局

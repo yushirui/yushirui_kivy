@@ -31,6 +31,7 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
+
 # 读取配置文件
 Config.read(config_path)
 
@@ -39,6 +40,7 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
+
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -104,9 +106,11 @@ App.title = 'yushirui0201_Size屏幕尺寸'
 
 # 相对大小，相对父布局大小，不是窗口大小
 
-class MyButton(Button):
-    """自定义一个按钮，提出公共属性"""
+# 自定义按钮，公共属性
+class YushiruiButton(Button):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
         # 按钮字体大小
@@ -115,50 +119,98 @@ class MyButton(Button):
         self.size_hint = [0.2, 0.2]
 
 
-class YushiruiWidget(RelativeLayout):
-    pass
-
-
+# 自定义组件（线性布局）
 class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
         # 设置背景颜色（可忽略）
         with self.canvas:
+            # 背景颜色
             Color(1, 1, 1, 1)
+            # 浮动布局矩形 = 矩形（位置=布局位置，大小=布局大小）
             self.rect = Rectangle(pos=self.pos, size=self.size)
+            # 浮动布局绑定（位置=布局矩形位置，大小=设置背景尺寸）
             self.bind(pos=self.update_rect, size=self.update_rect)
 
-
-
-        # 使用自定义按钮，这里的按钮，根据相对布局的位置，不是最外层线性布局的位置
-        bt0 = MyButton(text='Bt0', pos_hint={"right":1, "top":1}, background_color=(0.1, 0.5, 0.6, 1))
-        bt1 = MyButton(text='Bt1', pos_hint={"x": 0, "top": 1}, background_color=(1, 0, 0, 1))
-        bt_relative = MyButton(text='Relative', pos_hint={"center_x":.5, "center_y":.5}, background_color=(0.4, 0.5, 0.6, 1))
-        bt2 = MyButton(text='Bt2', pos_hint={"x":0, "y":0}, background_color=(0, 0, 1, 1))
-        bt3 = MyButton(text='Bt3', pos_hint={"right":1, "y":0}, background_color=(0.8, 0.9, 0.2, 1))
+        # 按钮，根据相对布局的位置，不是最外层线性布局的位置
+        # 自定义按钮1
+        bt1 = YushiruiButton(
+            # 文本
+            text='自定义按钮1',
+            # 相对位置
+            pos_hint={"right": 1, "top": 1},
+            # 背景色
+            background_color=(0.1, 0.5, 0.6, 1)
+        )
+        # 自定义按钮2
+        bt2 = YushiruiButton(
+            # 文本
+            text='自定义按钮2',
+            # 相对位置
+            pos_hint={"x": 0, "top": 1},
+            # 背景色
+            background_color=(1, 0, 0, 1)
+        )
+        # 自定义按钮3
+        bt3 = YushiruiButton(
+            # 文本
+            text='自定义按钮3',
+            # 相对位置
+            pos_hint={"center_x": .5, "center_y": .5},
+            # 背景色
+            background_color=(0.4, 0.5, 0.6, 1)
+        )
+        # 自定义按钮4
+        bt4 = YushiruiButton(
+            # 文本
+            text='自定义按钮4',
+            # 相对位置
+            pos_hint={"x": 0, "y": 0},
+            # 背景色
+            background_color=(0, 0, 1, 1)
+        )
+        # 自定义按钮5
+        bt5 = YushiruiButton(
+            # 文本
+            text='自定义按钮5',
+            # 相对位置
+            pos_hint={"right": 1, "y": 0},
+            # 背景色
+            background_color=(0.8, 0.9, 0.2, 1)
+        )
 
         # 相对布局
-        relative_layout = RelativeLayoutWidget()
+        relative_layout = RelativeLayout()
 
-        # 向RelativeLayout布局内遍历添加元素
-        for i in [bt0, bt1, bt_relative, bt2, bt3]:
+        # 遍历加组件
+        for i in [bt1, bt2, bt3, bt4, bt5]:
+            # 加组件（按钮）
             relative_layout.add_widget(i)
 
-        # 放一个空的BoxLayout占位
+        # 加组件，空的BoxLayout占位
         self.add_widget(BoxLayout())
-        # 将RelativeLayout添加到布局中
+        # 加组件，相对布局
         self.add_widget(relative_layout)
 
+    # 设置背景尺寸，可忽略
     def update_rect(self, *args):
-        """设置背景尺寸，可忽略"""
+        # 布局矩形位置 = 布局位置
         self.rect.pos = self.pos
+        # 布局矩形大小 = 布局大小
         self.rect.size = self.size
 
 
+# app类
 class Yushirui0218App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
+
 if __name__ == "__main__":
+    # 运行
     Yushirui0218App().run()

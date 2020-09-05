@@ -1,5 +1,5 @@
+# 自定义布局
 <YushiruiWidget>:
-
 
     # 画布
     canvas:
@@ -7,20 +7,26 @@
 		Color:
 			rgba: [1, 1, 1, 1]
 		# 矩形
-		Rectangle:
-			size: self.size
-			pos: self.pos
+        Rectangle:
+            # 绝对大小 = 组件大小
+            size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
 
+    # 按钮
     Button:
-        text: 'yushirui'
+        # 文本
+        text: '余时锐'
+        # 相对大小，当前窗口的比例大小
         size_hint: .2, .15
-
         # 窗口相对位置，按钮的中间，到窗口左边0.3，按钮的顶边，到窗口底边0.6
         pos_hint: {'center_x': 0.3, 'top': 0.75}
 
+    # 按钮
     Button:
-        text: 'xueyu'
+        # 文本
+        text: '鳕鱼'
+        # 相对大小，当前窗口的比例大小
         size_hint: .2, .15
-
         # 窗口相对位置，按钮左上角，与窗口左边0.6，下边0.25
         pos_hint: {'x': 0.6, 'y': .25}

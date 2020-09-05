@@ -31,6 +31,7 @@ yushirui4_kivy.spec
 /yushirui_18_深度学习入门/*
 /yushirui_19_自然语言处理/*
 /yushirui_20_opencv/*
+/yushirui_21_kivy/临时.py
 
 参考/*
 
@@ -46,4 +47,4 @@ common/实验室/*
 
 
 /yushirui_98_other/*
-/参考/批量修改文件.py
+/yushirui_21_kivy/批量修改文件.py

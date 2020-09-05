@@ -1,4 +1,7 @@
+# 自定义布局
 <YushiruiWidget>:
+
+    # 布局组件间距
     padding: 20
 
     # 锚点布局
@@ -7,13 +10,24 @@
         anchor_x: 'left'
         # 上
         anchor_y: 'top'
+
+        # 按钮
         Button:
-            text: 'Hello'
+            # 文本
+            text: '左上'
+            # 相对大小
             size_hint: .3, .2
+
     # 锚点布局
     AnchorLayout:
+        # 右
         anchor_x: 'right'
+        # 下
         anchor_y: 'bottom'
+
+        # 按钮
         Button:
-            text: 'Anchor'
+            # 文本
+            text: '右下'
+            # 相对大小
             size_hint: .3, .2

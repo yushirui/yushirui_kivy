@@ -31,6 +31,7 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
+
 # 读取配置文件
 Config.read(config_path)
 
@@ -39,6 +40,7 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
+
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -96,14 +98,22 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
+# 自定义组件（网格布局）
 class YushiruiWidget(GridLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
 
+# app类
 class Yushirui0214App(App):
+    # 重构
     def build(self):
+        # 返回自定义组件
         return YushiruiWidget()
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
+    # 运行
     Yushirui0214App().run()

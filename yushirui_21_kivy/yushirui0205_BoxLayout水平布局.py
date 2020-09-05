@@ -31,6 +31,7 @@ from common.util.yushirui_find_file_or_dir import yushirui_find_file_or_dir
 config_path = yushirui_find_file_or_dir('config/kivy_config.ini')
 # 读取配置，支持中文
 from kivy.config import Config
+
 # 读取配置文件
 Config.read(config_path)
 
@@ -39,6 +40,7 @@ Config.read(config_path)
 font_path = yushirui_find_file_or_dir('font/simkai.ttf')
 # 设置字体
 from kivy.core.text import LabelBase
+
 # 注册字体
 LabelBase.register('.', font_path)
 
@@ -93,30 +95,42 @@ App.icon = app_icon
 App.title = 'yushirui0201_Size屏幕尺寸'
 
 
-class BoxLayoutWidget(BoxLayout):
+# 自定义组件（水平布局）
+class YushiruiWidget(BoxLayout):
+    # 构造方法
     def __init__(self, **kwargs):
+        # 父类构造方法
         super().__init__(**kwargs)
 
         # 设置背景颜色（可忽略）
         with self.canvas:
+            # 背景颜色
             Color(1, 1, 1, 1)
+            # 浮动布局矩形 = 矩形（位置=布局位置，大小=布局大小）
             self.rect = Rectangle(pos=self.pos, size=self.size)
+            # 浮动布局绑定（位置=布局矩形位置，大小=设置背景尺寸）
             self.bind(pos=self.update_rect, size=self.update_rect)
 
-        # 添加两个按钮
-        self.add_widget(Button(text='Hello'))
-        self.add_widget(Button(text='BoxLayout'))
+        # 布局加组件（按钮）
+        self.add_widget(Button(text='余时锐左边'))
+        # 布局加组件（按钮）
+        self.add_widget(Button(text='余时锐右边'))
 
+    # 设置背景尺寸，可忽略
     def update_rect(self, *args):
-        """设置背景尺寸，可忽略"""
+        # 布局矩形位置 = 布局位置
         self.rect.pos = self.pos
+        # 布局矩形大小 = 布局大小
         self.rect.size = self.size
 
-
-class BoxApp(App):
+# app类
+class Yushirui0205App(App):
+    # 重构
     def build(self):
-        return BoxLayoutWidget()
+        # 返回自定义组件
+        return YushiruiWidget()
 
 
 if __name__ == "__main__":
-    BoxApp().run()
+    # 运行
+    Yushirui0205App().run()

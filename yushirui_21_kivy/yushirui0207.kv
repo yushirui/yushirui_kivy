@@ -1,29 +1,47 @@
+# 自定义布局
 <YushiruiWidget>:
 
     # 垂直布局
     orientation: 'vertical'
 
+    # 画布
     canvas:
-		Color:
-			rgba: [1, 1, 1, 1]
-		Rectangle:
-			size: self.size
-			pos: self.pos
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [1, 1, 1, 1]
 
+        # 矩形
+        Rectangle:
+            # 绝对大小 = 组件大小
+            size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
 
+    # 按钮
     Button:
-        text: 'Hello'
+        # 文本
+        text: '余时锐1'
 
+    # 按钮
     Button:
-        text: 'BoxLayout'
+        text: '余时锐水平布局'
 
+    # 线布局
     BoxLayout:
+        # 水平布局
         orientation: 'horizontal'
 
+        # 按钮
         Button:
-            text: 'first'
+            # 文本
+            text: '水平左边'
+            # 相对大小
             size_hint_y: .2
 
+        # 按钮
         Button:
-            text: 'second'
+            # 文本
+            text: '水平右边'
+            # 相对大小
             size_hint_y: .3

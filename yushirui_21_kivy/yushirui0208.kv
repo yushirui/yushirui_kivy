@@ -1,3 +1,4 @@
+# 自定义布局
 <YushiruiWidget>:
 
     # 垂直布局
@@ -6,32 +7,54 @@
     # 布局/组件间距
     padding:[10, 40, 40, 30]
 
+    # 画布
     canvas:
-		Color:
-			rgba: [1, 1, 1, 1]
-		Rectangle:
-			size: self.size
-			pos: self.pos
+        # 颜色
+        Color:
+            # r红色，g绿色，b蓝色，a透明度
+            rgba: [1, 1, 1, 1]
 
+        # 矩形
+        Rectangle:
+            # 绝对大小 = 组件大小
+            size: self.size
+            # 绝对位置 = 组件位置
+            pos: self.pos
+
+    # 按钮
     Button:
-        text: 'Hello'
+        # 文本
+        text: '按钮1'
+        # 背景色
         background_color: .6, .2, .2, 1
 
+    # 按钮
     Button:
-        text: 'BoxLayout'
+        # 文本
+        text: '按钮2'
+        # 背景色
         background_color: .2, .6 , .3, 1
 
+    # 线布局
     BoxLayout:
         # 水平布局
         orientation: 'horizontal'
 
         # 组件间距
         spacing: 20
+
+        # 按钮
         Button:
-            text: 'first'
+            # 文本
+            text: '第一个按钮'
+            # 背景色
             background_color: .2, .2 , .7, 1
 
+        # 按钮
         Button:
-            text: 'second'
+            # 文本
+            text: '第二个按钮'
+            # 相对大小
             size_hint_y: .3
+            # 背景色
             background_color: .4, .2 , .2, 1
