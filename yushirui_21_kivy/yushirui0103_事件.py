@@ -142,7 +142,7 @@ class CustomBtn(Widget):
 
 
 # app类
-class YushiruiApp(App):
+class Yushirui0103App(App):
     # 重构
     def build(self):
         # 返回自定义组件
@@ -151,4 +151,4 @@ class YushiruiApp(App):
 
 if __name__ == '__main__':
     # 运行
-    YushiruiApp().run()
+    Yushirui0103App().run()

@@ -118,7 +118,7 @@ class YushiruiWidget(GridLayout):
 
 
 # app类
-class YushiruiApp(App):
+class Yushirui0102App(App):
     # 重构
     def build(self):
         # 返回自定义组件
@@ -127,4 +127,4 @@ class YushiruiApp(App):
 
 if __name__ == '__main__':
     # 运行
-    YushiruiApp().run()
+    Yushirui0102App().run()

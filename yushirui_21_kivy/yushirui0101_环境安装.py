@@ -10,7 +10,7 @@ kivy.require('1.11.1')
 
 # 从kivy.app包里面导入App类
 from kivy.app import App
-Label控件
+# Label组件
 from kivy.uix.label import Label
 
 '''
@@ -47,7 +47,7 @@ success成功后，在/home/kivydev/kivy/accordion/bin目录下会生成一个ap
 '''
 
 
-class YushiruiApp(App):
+class Yushirui0101App(App):
 	# 重构
 	def build(self):
 		# 标签
@@ -59,4 +59,4 @@ class YushiruiApp(App):
 
 if __name__ == '__main__':
 	# 运行
-	YushiruiApp().run()
+	Yushirui0101App().run()

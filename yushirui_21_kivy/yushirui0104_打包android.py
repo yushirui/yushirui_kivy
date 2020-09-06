@@ -14,10 +14,10 @@ class IndexPage(BoxLayout):
         self.add_widget(self.join)
 
 
-class TestApp(App):
+class Yushirui0104App(App):
     def build(self):
         return IndexPage()
 
 
 if __name__ == "__main__":
-    TestApp().run()
+    Yushirui0104App().run()
